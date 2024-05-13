@@ -35,6 +35,7 @@ ColorScheme lightColorScheme = ColorScheme.fromSeed(
 );
 
 ColorScheme darkColorScheme = ColorScheme.fromSeed(
+  brightness: Brightness.dark,
   seedColor: AppColors.primary.color,
   primary: AppColors.primary.color,
   onPrimary: AppColors.primary.onColor,
