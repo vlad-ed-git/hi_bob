@@ -1,0 +1,8 @@
+/* 
+  InfoPlist.strings
+  Runner
+
+  Created by Vladimir Peter on 29/04/2024.
+  
+*/
+"NSPhotoLibraryUsageDescription"="Hi Bob App requires access to your photo library in order to select photos";

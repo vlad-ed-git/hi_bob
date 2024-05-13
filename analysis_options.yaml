@@ -1,0 +1,294 @@
+analyzer:
+  errors:
+    missing_required_param: error
+    missing_return: error
+    todo: ignore
+  language:
+    strict-inference: true
+    strict-raw-types: true
+
+linter:
+  rules:
+    # Require specifying return types for functions.
+    - require_trailing_commas
+
+    # Require specifying return types for functions.
+    - always_declare_return_types
+
+    # Always put control flow bodies on a new line.
+    - always_put_control_body_on_new_line
+
+    # Always require non-null named parameters.
+    - always_require_non_null_named_parameters
+
+    # Annotate method overrides with @override.
+    - annotate_overrides
+
+    # Avoid unnecessary use of 'as' for type casting.
+    - avoid_as
+
+    # Avoid using boolean literals in conditional expressions.
+    - avoid_bool_literals_in_conditional_expressions
+
+    # Avoid catching Errors without on clauses.
+    - avoid_catches_without_on_clauses
+
+    # Avoid catching errors, prefer catching exceptions.
+    - avoid_catching_errors
+
+    # Avoid classes with only static members.
+    - avoid_classes_with_only_static_members
+
+    # Avoid unnecessary checks for double and int types.
+    - avoid_double_and_int_checks
+
+    # Avoid empty 'else' statements.
+    - avoid_empty_else
+
+    # Avoid implementing 'equals' and 'hashCode' for mutable classes.
+    - avoid_equals_and_hash_code_on_mutable_classes
+
+    # Avoid unnecessary escaping of inner quotes in strings.
+    - avoid_escaping_inner_quotes
+
+    # Avoid initializing fields in const classes.
+    - avoid_field_initializers_in_const_classes
+
+    # Avoid using function literals in 'forEach' calls.
+    - avoid_function_literals_in_foreach_calls
+
+    # Avoid implementing value types (classes with only value-based equality).
+    - avoid_implementing_value_types
+
+    # Avoid initializing variables to null.
+    - avoid_init_to_null
+
+    # Avoid JavaScript-style rounded integers.
+    - avoid_js_rounded_ints
+
+    # Avoid null checks in equality operators.
+    - avoid_null_checks_in_equality_operators
+
+    # Avoid using positional boolean parameters.
+    - avoid_positional_boolean_parameters
+
+    # Avoid using print statements.
+    - avoid_print
+
+    # Avoid private typedef functions.
+    - avoid_private_typedef_functions
+
+    # Avoid specifying redundant argument values.
+    - avoid_redundant_argument_values
+
+    # Avoid relative imports for libraries.
+    - avoid_relative_lib_imports
+
+    # Avoid renaming method parameters.
+    - avoid_renaming_method_parameters
+
+    # Avoid specifying return types on setters.
+    - avoid_return_types_on_setters
+
+    # Avoid returning null.
+    - avoid_returning_null
+
+    # Avoid returning null for Future and FutureOr.
+    - avoid_returning_null_for_future
+
+    # Avoid returning null for void.
+    - avoid_returning_null_for_void
+
+    # Avoid returning 'this' from methods.
+    - avoid_returning_this
+
+    # Avoid setters without getters.
+    - avoid_setters_without_getters
+
+    # Avoid shadowing type parameters.
+    - avoid_shadowing_type_parameters
+
+    # Avoid using a single cascade in expression statements.
+    - avoid_single_cascade_in_expression_statements
+
+    # Avoid slow asynchronous I/O.
+    - avoid_slow_async_io
+
+    # Avoid using types as parameter names.
+    - avoid_types_as_parameter_names
+
+    # Avoid unnecessary containers (e.g., Container or Padding with no children).
+    - avoid_unnecessary_containers
+
+    # Avoid unused constructor parameters.
+    - avoid_unused_constructor_parameters
+
+    # Avoid using 'void' for async functions.
+    - avoid_void_async
+
+    # Avoid importing web libraries in Flutter.
+    - avoid_web_libraries_in_flutter
+
+    # Await only futures (avoid awaiting non-future values).
+    - await_only_futures
+
+    # Use camel case for extensions.
+    - camel_case_extensions
+
+    # Use camel case for type names.
+    - camel_case_types
+
+    # Cancel streams subscriptions when no longer needed.
+    - cancel_subscriptions
+
+    # Close sinks when they are no longer needed.
+    - close_sinks
+
+    # Require references in comments to be valid and reachable.
+    - comment_references
+
+    # Enforce the correct ordering of import directives.
+    - directives_ordering
+
+    # Avoid empty 'catch' blocks.
+    - empty_catches
+
+    # Avoid empty constructor bodies.
+    - empty_constructor_bodies
+
+    # Avoid empty statements.
+    - empty_statements
+
+    # Enforce file naming conventions.
+    - file_names
+
+    # Ensure the use of leading newlines in multiline string literals.
+    - leading_newlines_in_multiline_strings
+
+    # Enforce library naming conventions.
+    - library_names
+
+    # Enforce library prefix naming conventions.
+    - library_prefixes
+
+    # Ensure there are no adjacent strings in lists.
+    - no_adjacent_strings_in_list
+
+    # Ensure there are no duplicate case values in switch statements.
+    - no_duplicate_case_values
+
+    # Avoid complex logic in createState methods of StatefulWidget classes.
+    - no_logic_in_create_state
+
+    # Avoid using runtimeType.toString() to create debug descriptions.
+    - no_runtimeType_toString
+
+    # Avoid using non-constant identifier names.
+    - non_constant_identifier_names
+
+    # Avoid closures that return null.
+    - null_closures
+
+    # Enforce the use of slash ('/') for doc comments.
+    - slash_for_doc_comments
+
+    # Ensure properties are sorted last in widgets' child property lists.
+    - sort_child_properties_last
+
+
+    # Ensure pub dependencies are sorted.
+    - sort_pub_dependencies
+
+
+    # Ensure types are checked using 'is' or 'is!' for equality checks.
+    - test_types_in_equals
+
+    # Avoid throwing exceptions in 'finally' blocks.
+    - throw_in_finally
+
+    # Ensure type annotations are provided for public APIs.
+    - type_annotate_public_apis
+
+    # Enforce proper initialization of type parameters.
+    - type_init_formals
+
+    # Ensure that futures are awaited and the results are used.
+    - unawaited_futures
+
+    # Avoid unnecessary 'await' in 'return' statements.
+    - unnecessary_await_in_return
+
+    # Avoid unnecessary braces in string interpolations.
+    - unnecessary_brace_in_string_interps
+
+    # Avoid using unnecessary 'const' constructors.
+    - unnecessary_const
+
+    # Avoid unnecessary constructors for getters and setters.
+    - unnecessary_getters_setters
+
+    # Avoid unnecessary lambda expressions.
+    - unnecessary_lambdas
+
+    # Avoid using unnecessary 'new' for instance creation.
+    - unnecessary_new
+
+    # Avoid unnecessary use of null in 'if null' operators.
+    - unnecessary_null_in_if_null_operators
+
+    # Avoid unnecessary method overrides.
+    - unnecessary_overrides
+
+    # Avoid unnecessary parentheses.
+    - unnecessary_parenthesis
+
+    # Avoid unnecessary raw string literals.
+    - unnecessary_raw_strings
+
+    # Avoid unnecessary statements.
+    - unnecessary_statements
+
+    # Avoid unnecessary string escapes.
+    - unnecessary_string_escapes
+
+    # Avoid unnecessary string interpolations.
+    - unnecessary_string_interpolations
+
+    # Avoid using 'this' in a constructor when not required.
+    - unnecessary_this
+
+    # Avoid unrelated type equality checks.
+    - unrelated_type_equality_checks
+
+    # Avoid using unsafe HTML in Flutter widgets.
+    - unsafe_html
+
+    # Use full hexadecimal values for Flutter color constants.
+    - use_full_hex_values_for_flutter_colors
+
+    # Use the function type syntax for parameters.
+    - use_function_type_syntax_for_parameters
+
+    # Use keys in widget constructors.
+    - use_key_in_widget_constructors
+
+    # Avoid raw strings when possible.
+    - use_raw_strings
+
+    # Use 'rethrow' when possible instead of 'throw e'.
+    - use_rethrow_when_possible
+
+    # Use setters to change properties instead of methods.
+    - use_setters_to_change_properties
+
+    # Use 'StringBuffer' for efficient string concatenation.
+    - use_string_buffers
+
+    # Use 'to' and 'as' if applicable instead of casting with 'is' and 'as'.
+    - use_to_and_as_if_applicable
+
+    # Enforce the use of valid regular expressions.
+    - valid_regexps
+
+    # Avoid checking for void using the 'void' keyword.
+    - void_checks
