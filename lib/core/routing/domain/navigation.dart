@@ -11,4 +11,16 @@ extension AppNavigation on BuildContext {
   void goHome() {
     go(HomePageRoutes.main.path);
   }
+
+  void toLessonOne(){
+
+  }
+
+  void toLessonTwo(){
+
+  }
+
+  void toLessonThree(){
+
+  }
 }

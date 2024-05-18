@@ -9,10 +9,10 @@ final _shellNavigatorHomeProfileTabKey =
     GlobalKey<NavigatorState>(debugLabel: 'homeProfileTabNavShell');
 
 enum HomePageRoutes {
-  main('home'),
+  main('homeLanding'),
   profile('profile');
 
-  const HomePageRoutes(this.routeName, {this.isTopLevel = true});
+  const HomePageRoutes(this.routeName, {this.isTopLevel = true,});
 
   final String routeName;
   final bool isTopLevel;

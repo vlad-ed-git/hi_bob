@@ -6,16 +6,13 @@ import 'package:hi_bob/features/authentication/presentation/screens/splash_scree
 import 'package:hi_bob/features/home/presentation/screens/home.dart';
 
 enum AppRoutes {
-  splashScreen('welcome'),
   home('home'),
+  splashScreen('welcome'),
   noRouteFound('404');
-
   const AppRoutes(this.routeName);
 
   final String routeName;
-
-  // authChecker is the initial path '/'
-  String get path => this == splashScreen ? '/' : '/$routeName';
+  String get path => this ==  splashScreen ? '/' : '/$routeName';
 
   RouteBase getRoute() {
     switch (this) {

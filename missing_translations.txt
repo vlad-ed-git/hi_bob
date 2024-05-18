@@ -1,5 +1,12 @@
 {
   "zh": [
-    "unknownUserPreferencesErr"
+    "unknownUserPreferencesErr",
+    "homeTabTitle",
+    "profileTabTitle",
+    "homeTabAppBarTitle",
+    "appName",
+    "lesson1Title",
+    "lesson2Title",
+    "lesson3Title"
   ]
 }

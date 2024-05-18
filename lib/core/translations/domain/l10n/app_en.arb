@@ -1,3 +1,10 @@
 {
- "unknownUserPreferencesErr" : "Loading user preferences failed"
+ "unknownUserPreferencesErr" : "Loading user preferences failed",
+ "homeTabTitle" : "Lessons",
+ "profileTabTitle" : "My Account",
+ "homeTabAppBarTitle": "Get Started",
+ "appName" : "Hi Bob",
+ "lesson1Title" : "Matching Word Game",
+ "lesson2Title" : "Matching Sentences Game",
+ "lesson3Title" : "Speak 500"
 }
