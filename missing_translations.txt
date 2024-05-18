@@ -1,4 +1,15 @@
 {
+  "ru": [
+    "unknownUserPreferencesErr",
+    "homeTabTitle",
+    "profileTabTitle",
+    "homeTabAppBarTitle",
+    "appName",
+    "lesson1Title",
+    "lesson2Title",
+    "lesson3Title"
+  ],
+
   "zh": [
     "unknownUserPreferencesErr",
     "homeTabTitle",
