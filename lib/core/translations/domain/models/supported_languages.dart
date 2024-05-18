@@ -7,7 +7,9 @@ enum SupportedLanguages {
   @JsonValue('en')
   english('en', 'English', 'US'),
   @JsonValue('zh')
-  chinese('zh', 'Chinese', 'CN');
+  chinese('zh', 'Chinese', 'CN'),
+  @JsonValue('ru')
+  russian('ru', 'Russian', 'RU');
 
   const SupportedLanguages(
     this.languageCode,

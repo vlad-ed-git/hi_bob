@@ -12,8 +12,11 @@ extension AppNavigation on BuildContext {
     go(HomePageRoutes.main.path);
   }
 
-  void toLessonOne(){
+  String get lessonOneRoutePath =>
+      '${HomePageRoutes.main.path}/${HomePageRoutes.matchingWordsGame.path}';
 
+  Future<dynamic> toLessonOne() async{
+      return push(lessonOneRoutePath);
   }
 
   void toLessonTwo(){

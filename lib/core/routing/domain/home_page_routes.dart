@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hi_bob/features/games/matching_word_game/presentation/screens/matching_words_game.dart';
 import 'package:hi_bob/features/home/presentation/screens/landing_tab.dart';
 import 'package:hi_bob/features/profile/presentation/screens/profile_home_tab.dart';
 
@@ -10,7 +11,8 @@ final _shellNavigatorHomeProfileTabKey =
 
 enum HomePageRoutes {
   main('homeLanding'),
-  profile('profile');
+  profile('profile'),
+  matchingWordsGame('matchingWords', isTopLevel: false,);
 
   const HomePageRoutes(this.routeName, {this.isTopLevel = true,});
 
@@ -29,7 +31,17 @@ enum HomePageRoutes {
           pageBuilder: (context, state) => const NoTransitionPage(
             child: LandingTabScreen(),
           ),
-          routes: [],
+          routes: [
+            GoRoute(
+              path: matchingWordsGame.path,
+              name: matchingWordsGame.routeName,
+              builder: (context, state) {
+                return MatchingWordsGameScreen(
+
+                );
+              },
+            ),
+          ],
         ),
       ],
     );

@@ -74,8 +74,11 @@ extension ContextExt on BuildContext {
     );
     final snackBar = snack.create(this);
     final messenger = ScaffoldMessenger.of(this);
-    messenger.hideCurrentSnackBar();
-    messenger.showSnackBar(snackBar);
+    messenger.removeCurrentSnackBar();
+    messenger.showSnackBar(snackBar, snackBarAnimationStyle: AnimationStyle(
+      duration: Duration(milliseconds: 100),
+      curve: Curves.easeOutSine,
+    ));
   }
 
   void showSuccessSnack(String msg) {
@@ -86,6 +89,11 @@ extension ContextExt on BuildContext {
     final messenger = ScaffoldMessenger.of(this);
     messenger.hideCurrentSnackBar();
     messenger.showSnackBar(snackBar);
+  }
+  Future<void> removeSnack() async{
+    await Future.delayed(Duration(milliseconds: 300), (){});
+    final messenger = ScaffoldMessenger.of(this);
+    messenger.removeCurrentSnackBar();
   }
 }
 
