@@ -6,9 +6,9 @@ import 'package:hi_bob/core/ui/containers/containers.dart';
 import 'package:hi_bob/core/ui/text/app_text.dart';
 import 'package:hi_bob/core/utils/extensions/context_ext.dart';
 import 'package:hi_bob/features/games/matching_word_game/presentation/state/match_russian_to_english_state.dart';
-import 'package:hi_bob/features/games/matching_word_game/presentation/widgets/game_loading.dart';
 import 'package:hi_bob/features/games/matching_word_game/presentation/widgets/game_results.dart';
 import 'package:hi_bob/features/games/matching_word_game/presentation/widgets/get_started.dart';
+import 'package:hi_bob/features/games/presentation/widgets/game_loading.dart';
 import 'package:hi_bob/features/games/presentation/widgets/word_card.dart';
 
 class MatchingWordsGameScreen extends StatefulWidget {
@@ -21,7 +21,7 @@ class MatchingWordsGameScreen extends StatefulWidget {
 
 class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
   String? _wordAwaitingMatching;
-  late Timer _timer;
+  Timer? _timer;
   int _totalTimeTakenInSeconds = 0;
   GameStates _gameStates = GameStates.init;
 
@@ -37,8 +37,8 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
 
 
   void _startTimer(){
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      if (timer.isActive && mounted) {
+    _timer = Timer.periodic(Duration(seconds: 1), (t) {
+      if (t.isActive && mounted) {
         setState(() {
           _totalTimeTakenInSeconds = _totalTimeTakenInSeconds + 1;
         });
@@ -110,7 +110,7 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
           totalTimeTakenInSeconds: _totalTimeTakenInSeconds,
           onDone: () {
             _totalTimeTakenInSeconds = 0;
-            _timer.cancel();
+            _timer?.cancel();
             context.goHome();
           },
         );
@@ -180,7 +180,7 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
       setState(() {
         _gameStates = GameStates.done;
       });
-      _timer.cancel();
+      _timer?.cancel();
     }else{
       setState(() {
         _gameStates = GameStates.play;
@@ -191,7 +191,7 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
   @override
   void dispose() {
     _gameStates = GameStates.init;
-    _timer.cancel();
+    _timer?.cancel();
     _disposeState();
     super.dispose();
   }

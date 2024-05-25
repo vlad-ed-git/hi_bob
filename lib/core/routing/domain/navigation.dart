@@ -15,15 +15,15 @@ extension AppNavigation on BuildContext {
   String get lessonOneRoutePath =>
       '${HomePageRoutes.main.path}/${HomePageRoutes.matchingWordsGame.path}';
 
+  String get lessonTwoRoutePath =>
+      '${HomePageRoutes.main.path}/${HomePageRoutes.matchingSentencesGame.path}';
+
   Future<dynamic> toLessonOne() async{
       return push(lessonOneRoutePath);
   }
 
-  void toLessonTwo(){
-
+  Future<dynamic> toLessonTwo() async{
+    return push(lessonTwoRoutePath);
   }
 
-  void toLessonThree(){
-
-  }
 }

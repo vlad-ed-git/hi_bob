@@ -45,16 +45,13 @@ class LandingTabScreen extends StatelessWidget {
         context.toLessonOne();
       case Lessons.two:
         context.toLessonTwo();
-      case Lessons.three:
-        context.toLessonThree();
     }
   }
 }
 
 enum Lessons {
   one,
-  two,
-  three;
+  two,;
 
   String label(BuildContext context) {
     switch (this) {
@@ -62,8 +59,6 @@ enum Lessons {
         return context.translated.lesson1Title;
       case Lessons.two:
         return context.translated.lesson2Title;
-      case Lessons.three:
-        return context.translated.lesson3Title;
     }
   }
 }
