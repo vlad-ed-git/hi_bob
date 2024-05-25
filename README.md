@@ -37,7 +37,7 @@ flutter build apk --release --target-platform android-arm,android-arm64 -t ./lib
 
 #### CODE GENERATION
 ```
-flutter pub run build_runner build --delete-conflicting-outputs
+flutter pub run build_runner build --delete-conflicting-outputs && flutterN pub get
 ```
 
 #### CLEAN 

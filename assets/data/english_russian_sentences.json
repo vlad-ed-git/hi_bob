@@ -1,0 +1,2424 @@
+{
+  "data": [
+    [
+      {
+        "russian": "Это тот самый рассказ",
+        "audioName": "Line_001",
+        "english": "This is the story"
+      },
+      {
+        "russian": "Попробуй немного вот этого",
+        "audioName": "Line_002",
+        "english": "Have some of this"
+      },
+      {
+        "russian": "И этого тоже",
+        "audioName": "Line_003",
+        "english": "And this too"
+      },
+      {
+        "russian": "Это печенье",
+        "audioName": "Line_004",
+        "english": "This is a cookie"
+      },
+      {
+        "russian": "Тебе нужно есть",
+        "audioName": "Line_005",
+        "english": "You need to eat"
+      },
+      {
+        "russian": "Там есть еще",
+        "audioName": "Line_006",
+        "english": "There is more in there"
+      },
+      {
+        "russian": "Вкусно",
+        "audioName": "Line_007",
+        "english": "Is it good?"
+      },
+      {
+        "russian": "Ты добрая",
+        "audioName": "Line_008",
+        "english": "You are nice"
+      },
+      {
+        "russian": "Это конфета",
+        "audioName": "Line_009",
+        "english": "Is that candy?"
+      },
+      {
+        "russian": "Да, это конфета. Попробуй",
+        "audioName": "Line_010",
+        "english": "Yes, it is. Have some"
+      }
+    ],
+    [
+      {
+        "russian": "А ему нравится",
+        "audioName": "Line_011",
+        "english": "Does he like it?"
+      },
+      {
+        "russian": "Нет, он есть только свою еду",
+        "audioName": "Line_012",
+        "english": "No, only its own food"
+      },
+      {
+        "russian": "Это тебе",
+        "audioName": "Line_013",
+        "english": "This is for you"
+      },
+      {
+        "russian": "Очень хорошо",
+        "audioName": "Line_014",
+        "english": "That was nice"
+      },
+      {
+        "russian": "Положи на стол",
+        "audioName": "Line_015",
+        "english": "Put it on the table"
+      },
+      {
+        "russian": "Ты рада",
+        "audioName": "Line_016",
+        "english": "Are you happy?"
+      },
+      {
+        "russian": "Радостнее некуда",
+        "audioName": "Line_017",
+        "english": "I am as happy as I can be"
+      },
+      {
+        "russian": "Мне хорошо с тобой",
+        "audioName": "Line_018",
+        "english": "It’s good to be with you"
+      },
+      {
+        "russian": "Эта твоя шляпа или его",
+        "audioName": "Line_019",
+        "english": "Is this your hat or his?"
+      },
+      {
+        "russian": "Моя",
+        "audioName": "Line_020",
+        "english": "It’s mine"
+      },
+      {
+        "russian": "Эй! Шляпа",
+        "audioName": "Line_021",
+        "english": "Hey! Your hat!"
+      }
+    ],
+    [
+      {
+        "russian": "Посмотри",
+        "audioName": "Line_022",
+        "english": "Look at it"
+      },
+      {
+        "russian": "Ничего страшного",
+        "audioName": "Line_023",
+        "english": "It’ll be ok"
+      },
+      {
+        "russian": "Всё хорошо",
+        "audioName": "Line_024",
+        "english": "This is good"
+      },
+      {
+        "russian": "Она улетела со стола",
+        "audioName": "Line_025",
+        "english": "It just flew from the table"
+      },
+      {
+        "russian": "Мне она нравится",
+        "audioName": "Line_026",
+        "english": "I like it"
+      },
+      {
+        "russian": "У меня хорошая шляпа",
+        "audioName": "Line_027",
+        "english": "I have a good hat"
+      },
+      {
+        "russian": "Или может быть ты возьмешь эту",
+        "audioName": "Line_028",
+        "english": "Or you can have this one"
+      },
+      {
+        "russian": "Нет, такую носят ковбои",
+        "audioName": "Line_029",
+        "english": "No, that’s worn by cowboys"
+      },
+      {
+        "russian": "У меня только одна шляпа",
+        "audioName": "Line_030",
+        "english": "I only have one hat"
+      },
+      {
+        "russian": "Когда-то у меня было две шляпы",
+        "audioName": "Line_031",
+        "english": "I had two hats"
+      }
+    ],
+    [
+      {
+        "russian": "А сейчас нет ни одной",
+        "audioName": "Line_032",
+        "english": "Now I do not"
+      },
+      {
+        "russian": "Но я найду другую",
+        "audioName": "Line_033",
+        "english": "But I will get another"
+      },
+      {
+        "russian": "На что ты её купишь",
+        "audioName": "Line_034",
+        "english": "What will you buy it with?"
+      },
+      {
+        "english": "You spent all your money",
+        "russian": "Ты потратил все деньги",
+        "audioName": "Line_035"
+      },
+      {
+        "russian": "Мы же ходили гулять",
+        "audioName": "Line_036",
+        "english": "We were going out"
+      },
+      {
+        "russian": "Когда у тебя будут деньги",
+        "audioName": "Line_037",
+        "english": "When will you get more money?"
+      },
+      {
+        "russian": "Скоро мы будем гулять опять",
+        "audioName": "Line_038",
+        "english": "We will go out soon"
+      },
+      {
+        "russian": "Там есть что-нибудь",
+        "audioName": "Line_039",
+        "english": "Is there some in there?"
+      },
+      {
+        "russian": "Ты можешь посмотреть",
+        "audioName": "Line_040",
+        "english": "Can you look?"
+      },
+      {
+        "russian": "Я вижу одно яблоко… и еще одно",
+        "audioName": "Line_041",
+        "english": "I see an apple, and another one"
+      }
+    ],
+    [
+      {
+        "russian": "Какое ты хочешь",
+        "audioName": "Line_042",
+        "english": "Which one do you want?"
+      },
+      {
+        "russian": "Это твое яблоко",
+        "audioName": "Line_043",
+        "english": "That is your apple"
+      },
+      {
+        "russian": "Оно от их детей",
+        "audioName": "Line_044",
+        "english": "It’s from their kids"
+      },
+      {
+        "russian": "Они сказали, что это подарок",
+        "audioName": "Line_045",
+        "english": "They said it’s a gift"
+      },
+      {
+        "russian": "Съешь его, если хочешь",
+        "audioName": "Line_046",
+        "english": "Eat it if you want to"
+      },
+      {
+        "russian": "Сейчас не буду",
+        "audioName": "Line_047",
+        "english": "I won’t do it now"
+      },
+      {
+        "russian": "Я съем потом",
+        "audioName": "Line_048",
+        "english": "I will eat it later"
+      },
+      {
+        "russian": "Каждый из нас может съесть по половинке",
+        "audioName": "Line_049",
+        "english": "We can each eat half of this one"
+      },
+      {
+        "russian": "Расскажи мне еще про яблоко",
+        "audioName": "Line_050",
+        "english": "Tell me more about it"
+      },
+      {
+        "russian": "Как ты его нашла",
+        "audioName": "Line_051",
+        "english": "How did you get it?"
+      }
+    ],
+    [
+      {
+        "russian": "Оно было на дереве",
+        "audioName": "Line_052",
+        "english": "It was up in a tree"
+      },
+      {
+        "russian": "Дети достали его",
+        "audioName": "Line_053",
+        "english": "The kids went out to get it"
+      },
+      {
+        "russian": "Но мне пришлось им помочь",
+        "audioName": "Line_054",
+        "english": "But I had to help them"
+      },
+      {
+        "russian": "Потом я отдала одно яблоко девочке",
+        "audioName": "Line_055",
+        "english": "Then I gave one to the girl"
+      },
+      {
+        "russian": "Она была очень рада",
+        "audioName": "Line_056",
+        "english": "She was very happy"
+      },
+      {
+        "russian": "На этом дереве было много яблок",
+        "audioName": "Line_057",
+        "english": "Did the tree have many apples?"
+      },
+      {
+        "russian": "Да, но некоторые были плохими",
+        "audioName": "Line_058",
+        "english": "Yes but some were bad"
+      },
+      {
+        "russian": "Так что мы их оставили",
+        "audioName": "Line_059",
+        "english": "So we left them"
+      },
+      {
+        "russian": "Эти хорошие",
+        "audioName": "Line_060",
+        "english": "These are good"
+      },
+      {
+        "russian": "Хочешь мою половину",
+        "audioName": "Line_061",
+        "english": "Would you like my half?"
+      }
+    ],
+    [
+      {
+        "russian": "Нет, там много других яблок",
+        "audioName": "Line_062",
+        "english": "No, there are plenty of other apples"
+      },
+      {
+        "russian": "Ты много принесла в дом",
+        "audioName": "Line_063",
+        "english": "You brought a lot into the house"
+      },
+      {
+        "russian": "У нее их много",
+        "audioName": "Line_064",
+        "english": "She has plenty"
+      },
+      {
+        "russian": "Она может достать еще",
+        "audioName": "Line_065",
+        "english": "She can get more"
+      },
+      {
+        "russian": "На ее дереве много яблок",
+        "audioName": "Line_066",
+        "english": "Her tree is full of them"
+      },
+      {
+        "russian": "Возьми два",
+        "audioName": "Line_067",
+        "english": "Take two"
+      },
+      {
+        "russian": "Спасибо, я люблю яблоки",
+        "audioName": "Line_068",
+        "english": "Thank you, I like apples"
+      },
+      {
+        "russian": "И мой брат тоже. Я отдам одно ему",
+        "audioName": "Line_069",
+        "english": "So does my brother. I will give him one"
+      },
+      {
+        "russian": "Посмотри на часы",
+        "audioName": "Line_070",
+        "english": "I see the clock"
+      },
+      {
+        "russian": "Мне пора идти.",
+        "audioName": "Line_071",
+        "english": "It’s time to go"
+      },
+      {
+        "russian": "Мы можем побыть здесь еще часок",
+        "audioName": "Line_072",
+        "english": "We could stay here for an hour"
+      }
+    ],
+    [
+      {
+        "russian": "Нет, не можем",
+        "audioName": "Line_073",
+        "english": "No, we can’t"
+      },
+      {
+        "russian": "Да, можем. Я приготовлю еще кофе",
+        "audioName": "Line_074",
+        "english": "Yes we can. I will make a new pot of coffee"
+      },
+      {
+        "russian": "В этот раз будет лучше, чем прошлый",
+        "audioName": "Line_075",
+        "english": "It will be better than the last one"
+      },
+      {
+        "russian": "Первый был неплохой",
+        "audioName": "Line_076",
+        "english": "The first one is fine"
+      },
+      {
+        "russian": "Он стоит уже очень долго",
+        "audioName": "Line_077",
+        "english": "It’s been here too long"
+      },
+      {
+        "russian": "Он никуда не годится",
+        "audioName": "Line_078",
+        "english": "It’s no good"
+      },
+      {
+        "russian": "Кто захочет холодный кофе",
+        "audioName": "Line_079",
+        "english": "Who wants cold coffee?"
+      },
+      {
+        "russian": "Сейчас он уже никуда не годится",
+        "audioName": "Line_080",
+        "english": "It’s no good now"
+      },
+      {
+        "russian": "Все люди хотят горячий кофе",
+        "audioName": "Line_081",
+        "english": "People want hot coffee"
+      },
+      {
+        "russian": "Мой кофе очень хороший",
+        "audioName": "Line_082",
+        "english": "My coffee is very good"
+      }
+    ],
+    [
+      {
+        "russian": "Я приготовила его",
+        "audioName": "Line_083",
+        "english": "I made it"
+      },
+      {
+        "russian": "Я могу сделать заново",
+        "audioName": "Line_084",
+        "english": "I can make it over"
+      },
+      {
+        "russian": "Хорошо получилось",
+        "audioName": "Line_085",
+        "english": "Did I do it right?"
+      },
+      {
+        "russian": "Сядь",
+        "audioName": "Line_086",
+        "english": "Sit down"
+      },
+      {
+        "russian": "Я хочу только этот кофе",
+        "audioName": "Line_087",
+        "english": "I only want this coffee"
+      },
+      {
+        "russian": "Мне нравится то, как ты его делаешь",
+        "audioName": "Line_088",
+        "english": "I like the way you make it"
+      },
+      {
+        "russian": "Лучше не найти.",
+        "audioName": "Line_089",
+        "english": "I cannot find any better"
+      },
+      {
+        "russian": "Я использую только самые лучшие зерна",
+        "audioName": "Line_090",
+        "english": "I use the best beans"
+      },
+      {
+        "russian": "Можно еще",
+        "audioName": "Line_091",
+        "english": "May I have some?"
+      },
+      {
+        "russian": "Ты хочешь горячей воды",
+        "audioName": "Line_092",
+        "english": "Do you want some hot water?"
+      }
+    ],
+    [
+      {
+        "russian": "Придется слишком долго ждать",
+        "audioName": "Line_093",
+        "english": "That will take too long"
+      },
+      {
+        "russian": "Я просто хочу немного кофе",
+        "audioName": "Line_094",
+        "english": "I just want a little coffee"
+      },
+      {
+        "russian": "Это очень хороший кофе",
+        "audioName": "Line_095",
+        "english": "This is very good"
+      },
+      {
+        "russian": "После того, как ты допьешь кофе мы можем выходить",
+        "audioName": "Line_096",
+        "english": "After you finish your coffee we can go"
+      },
+      {
+        "russian": "Мне нравятся слова этой песни",
+        "audioName": "Line_097",
+        "english": "I like the words to this song"
+      },
+      {
+        "russian": "Как она называется",
+        "audioName": "Line_098",
+        "english": "What is it called?"
+      },
+      {
+        "russian": "Я не знаю. Просто песня какая-то",
+        "audioName": "Line_099",
+        "english": "I don’t know. It’s just a song"
+      },
+      {
+        "russian": "Где я могу посмотреть, как она называется",
+        "audioName": "Line_100",
+        "english": "Where can I find the name?"
+      },
+      {
+        "russian": "Почти все названия можно найти в интернете",
+        "audioName": "Line_101",
+        "english": "Most of the names are online"
+      },
+      {
+        "russian": "Я знаю как искать",
+        "audioName": "Line_102",
+        "english": "I know how to find it"
+      }
+    ],
+    [
+      {
+        "russian": "Сейчас, только возьму компьютер",
+        "audioName": "Line_103",
+        "english": "Let me get my computer"
+      },
+      {
+        "russian": "Я не вижу через тебя",
+        "audioName": "Line_104",
+        "english": "I can’t see through you"
+      },
+      {
+        "russian": "Отодвинься",
+        "audioName": "Line_105",
+        "english": "Sit back. Phrasal verb"
+      },
+      {
+        "russian": "Так намного лучше",
+        "audioName": "Line_106",
+        "english": "That’s much better"
+      },
+      {
+        "russian": "До этого ничего не было видно",
+        "audioName": "Line_107",
+        "english": "I couldn’t see before"
+      },
+      {
+        "russian": "Нужно зайти на правильный сайт",
+        "audioName": "Line_108",
+        "english": "I need to go to the right page"
+      },
+      {
+        "russian": "Это хорошая песня",
+        "audioName": "Line_109",
+        "english": "This song is good"
+      },
+      {
+        "russian": "Она новая",
+        "audioName": "Line_110",
+        "english": "It’s new"
+      },
+      {
+        "russian": "Иногда на сайте пишут и текст песен",
+        "audioName": "Line_111",
+        "english": "Sometimes they write the words"
+      },
+      {
+        "russian": "Эта песня может быть нашей песней",
+        "audioName": "Line_112",
+        "english": "This can be our song"
+      }
+    ],
+    [
+      {
+        "russian": "Никто еще ее не использовал",
+        "audioName": "Line_113",
+        "english": "No one has used it before"
+      },
+      {
+        "russian": "Мне это нравится",
+        "audioName": "Line_114",
+        "english": "It looks good to me"
+      },
+      {
+        "russian": "Это мужчина поет",
+        "audioName": "Line_115",
+        "english": "The singer is a man?"
+      },
+      {
+        "russian": "У него очень высокий голос",
+        "audioName": "Line_116",
+        "english": "His voice is too high"
+      },
+      {
+        "russian": "Любой мужчина может петь так высоко",
+        "audioName": "Line_117",
+        "english": "Any man can sing that high"
+      },
+      {
+        "russian": "Был бы холодный день в Аду, когда я так смогу",
+        "audioName": "Line_118",
+        "english": "It will be a cold day when I do. English colloquialism"
+      },
+      {
+        "russian": "Ты очень похож на него",
+        "audioName": "Line_119",
+        "english": "You look the same as him"
+      },
+      {
+        "russian": "Ты права",
+        "audioName": "Line_120",
+        "english": "You’re right"
+      },
+      {
+        "russian": "Он похож на меня",
+        "audioName": "Line_121",
+        "english": "He looks like me"
+      },
+      {
+        "russian": "Я думаю, ты можешь петь как он",
+        "audioName": "Line_122",
+        "english": "I think you could sing like him"
+      }
+    ],
+    [
+      {
+        "russian": "Я тоже мог бы быть певцом",
+        "audioName": "Line_123",
+        "english": "I could be a singer also"
+      },
+      {
+        "russian": "Ты можешь петь дома",
+        "audioName": "Line_124",
+        "english": "You could sing around the house"
+      },
+      {
+        "russian": "Как-нибудь в другой раз",
+        "audioName": "Line_125",
+        "english": "Another day"
+      },
+      {
+        "russian": "Ты приходил вчера",
+        "audioName": "Line_126",
+        "english": "You came here yesterday"
+      },
+      {
+        "russian": "Ты сможешь прийти завтра",
+        "audioName": "Line_127",
+        "english": "Can you come tomorrow?"
+      },
+      {
+        "russian": "Я работаю утром",
+        "audioName": "Line_128",
+        "english": "I have to work in the morning"
+      },
+      {
+        "russian": "Я могу прийти в три часа",
+        "audioName": "Line_129",
+        "english": "I will come at three o’clock"
+      },
+      {
+        "russian": "Дай мне слово",
+        "audioName": "Line_130",
+        "english": "Give me your word"
+      },
+      {
+        "russian": "Ты должен прийти завтра",
+        "audioName": "Line_131",
+        "english": "You must come tomorrow"
+      },
+      {
+        "russian": "Потому, что мне будет нужна твоя помощь",
+        "audioName": "Line_132",
+        "english": "Because I will need your help"
+      }
+    ],
+    [
+      {
+        "russian": "Почему здесь капает",
+        "audioName": "Line_133",
+        "english": "Why does that drip?"
+      },
+      {
+        "russian": "Здесь нужна новая деталь",
+        "audioName": "Line_134",
+        "english": "It needs a new part"
+      },
+      {
+        "russian": "Я даже не начинал еще",
+        "audioName": "Line_135",
+        "english": "I have not even begun"
+      },
+      {
+        "russian": "Здесь придется поработать",
+        "audioName": "Line_136",
+        "english": "This place needs a lot of work"
+      },
+      {
+        "russian": "Ничего нормально не работает",
+        "audioName": "Line_137",
+        "english": "Nothing works well"
+      },
+      {
+        "russian": "Это такой беспредел",
+        "audioName": "Line_138",
+        "english": "It is such a mess"
+      },
+      {
+        "russian": "Почему ты здесь живешь",
+        "audioName": "Line_139",
+        "english": "Why do you live here?"
+      },
+      {
+        "russian": "Нужны месяца, чтобы привести это все в порядо",
+        "audioName": "Line_140",
+        "english": "It will take months to fix it up"
+      },
+      {
+        "russian": "Зачем мне переезжать",
+        "audioName": "Line_141",
+        "english": "Why should I move?"
+      },
+      {
+        "russian": "Тут нужно только доделать пару вещей",
+        "audioName": "Line_142",
+        "english": "It just needs a few things"
+      }
+    ],
+    [
+      {
+        "russian": "А ты мне можешь помочь",
+        "audioName": "Line_143",
+        "english": "You can help me"
+      },
+      {
+        "russian": "Ты можешь поставить новые детали",
+        "audioName": "Line_144",
+        "english": "You can put in new parts"
+      },
+      {
+        "russian": "Через пару лет всё это будет стоить больших денег",
+        "audioName": "Line_145",
+        "english": "In a few years it will be worth a lot of money"
+      },
+      {
+        "russian": "Дом будет выглядеть совсем по-другому",
+        "audioName": "Line_146",
+        "english": "It will look very different"
+      },
+      {
+        "russian": "Я выкину весь хлам",
+        "audioName": "Line_147",
+        "english": "I will throw away the bad stuff"
+      },
+      {
+        "russian": "Это опять нужно отремонтировать",
+        "audioName": "Line_148",
+        "english": "I have to fix that again"
+      },
+      {
+        "russian": "Можно просто выключить",
+        "audioName": "Line_149",
+        "english": "I can turn it off. Eng Phrasal verb"
+      },
+      {
+        "russian": "Проблема решена",
+        "audioName": "Line_150",
+        "english": "Your problem went away. Eng phrasal verb"
+      },
+      {
+        "russian": "Этот дом слишком старый",
+        "audioName": "Line_151",
+        "english": "This house is so old"
+      },
+      {
+        "russian": "Я и пересчитать не смогу количество проблем с ним",
+        "audioName": "Line_152",
+        "english": "I can’t count the number of problems"
+      }
+    ],
+    [
+      {
+        "russian": "Ты сделаешь его великолепным",
+        "audioName": "Line_153",
+        "english": "You will make it great"
+      },
+      {
+        "russian": "И скажи мне как",
+        "audioName": "Line_154",
+        "english": "Tell me how"
+      },
+      {
+        "russian": "Вы, мужчины, знаете как",
+        "audioName": "Line_155",
+        "english": "Men know how"
+      },
+      {
+        "russian": "Ты всегда так говоришь",
+        "audioName": "Line_156",
+        "english": "You always say that"
+      },
+      {
+        "russian": "Это простая работа",
+        "audioName": "Line_157",
+        "english": "It is a small job"
+      },
+      {
+        "russian": "Всякая работа простая сначала",
+        "audioName": "Line_158",
+        "english": "Every job is small in the beginning"
+      },
+      {
+        "russian": "Ты всегда находишь решения",
+        "audioName": "Line_159",
+        "english": "You’ve always found an answer"
+      },
+      {
+        "russian": "Над этим все-равно придется поработать",
+        "audioName": "Line_160",
+        "english": "It will still take work"
+      },
+      {
+        "russian": "Нужно дотянуться до места между этих труб",
+        "audioName": "Line_161",
+        "english": "I need to get between the pipes"
+      },
+      {
+        "russian": "Какое название у этих труб",
+        "audioName": "Line_162",
+        "english": "What’s the name of that kind of pipe?"
+      }
+    ],
+    [
+      {
+        "russian": "Может быть мне спросить в магазине есть ли у них такие",
+        "audioName": "Line_163",
+        "english": "Should I ask the store if they have it?"
+      },
+      {
+        "russian": "Магазин «Мистер Водопроводчик»",
+        "audioName": "Line_164",
+        "english": "The Mr. Plumber store?"
+      },
+      {
+        "russian": "Они продают детали для дома",
+        "audioName": "Line_165",
+        "english": "They have parts for the home"
+      },
+      {
+        "russian": "Это большой магазин",
+        "audioName": "Line_166",
+        "english": "It’s a big store"
+      },
+      {
+        "russian": "Я могу дать им названия этих деталей",
+        "audioName": "Line_167",
+        "english": "I can give him the name of the part"
+      },
+      {
+        "russian": "Мне нужно выйти на воздух",
+        "audioName": "Line_168",
+        "english": "I need some air"
+      },
+      {
+        "russian": "Здесь и нужно подвести черту",
+        "audioName": "Line_169",
+        "english": "I need to draw a line here"
+      },
+      {
+        "russian": "Отложи карандаш",
+        "audioName": "Line_170",
+        "english": "Set the pencil down"
+      },
+      {
+        "russian": "Ты владеешь этим домом",
+        "audioName": "Line_171",
+        "english": "Do you own this home?"
+      },
+      {
+        "russian": "Мне нужно знать, что под этим находится",
+        "audioName": "Line_172",
+        "english": "I need to know what’s under here"
+      }
+    ],
+    [
+      {
+        "russian": "Ты умеешь читать чертежи",
+        "audioName": "Line_173",
+        "english": "Can you read a blueprint?"
+      },
+      {
+        "russian": "Предыдущий владелец дома передал мне чертеж",
+        "audioName": "Line_174",
+        "english": "The last owner gave it to me"
+      },
+      {
+        "russian": "Я никогда не умела их читать",
+        "audioName": "Line_175",
+        "english": "I could never read it"
+      },
+      {
+        "russian": "Это может нам помочь",
+        "audioName": "Line_176",
+        "english": "This could help us"
+      },
+      {
+        "russian": "Они оставили записку",
+        "audioName": "Line_177",
+        "english": "They left a note"
+      },
+      {
+        "russian": "Где она заканчивается",
+        "audioName": "Line_178",
+        "english": "Where does this end?"
+      },
+      {
+        "russian": "Эта труба идет вдоль стены",
+        "audioName": "Line_179",
+        "english": "It goes along the wall"
+      },
+      {
+        "russian": "Там она может повернуть",
+        "audioName": "Line_180",
+        "english": "It might turn here"
+      },
+      {
+        "russian": "Или она может пойти дальше в следующую комнату",
+        "audioName": "Line_181",
+        "english": "Or it could go into the next room"
+      },
+      {
+        "russian": "Я могу постучать по трубам",
+        "audioName": "Line_182",
+        "english": "I can make a sound on the pipes"
+      }
+    ],
+    [
+      {
+        "russian": "Она может и вниз уходить",
+        "audioName": "Line_183",
+        "english": "It could go below"
+      },
+      {
+        "russian": "Я видел такое раньше",
+        "audioName": "Line_184",
+        "english": "I saw this before"
+      },
+      {
+        "russian": "Я видел что-то похожее",
+        "audioName": "Line_185",
+        "english": "I saw something like it"
+      },
+      {
+        "russian": "Я думал, что видел",
+        "audioName": "Line_186",
+        "english": "I thought I did"
+      },
+      {
+        "russian": "Ну, тут может быть и так, и так",
+        "audioName": "Line_187",
+        "english": "It can go both ways"
+      },
+      {
+        "russian": "Я могу попробовать несколько способов",
+        "audioName": "Line_188",
+        "english": "There are a few things I can do"
+      },
+      {
+        "russian": "Эти нужно отремонтировать",
+        "audioName": "Line_189",
+        "english": "Those need fixing"
+      },
+      {
+        "russian": "Эти нужно постоянно ремонтировать",
+        "audioName": "Line_190",
+        "english": "Those always needed fixing"
+      },
+      {
+        "russian": "Я уже их видела",
+        "audioName": "Line_191",
+        "english": "I looked at it before"
+      },
+      {
+        "russian": "Я могу показать",
+        "audioName": "Line_192",
+        "english": "I can show you"
+      }
+    ],
+    [
+      {
+        "russian": "Толстый провод нужно заменить",
+        "audioName": "Line_193",
+        "english": "The large wire needs replacing"
+      },
+      {
+        "russian": "Ты им часто пользуешься",
+        "audioName": "Line_194",
+        "english": "Do you use it often?"
+      },
+      {
+        "russian": "Нет, но, когда нужно, я включаю обе лампочки вместе",
+        "audioName": "Line_195",
+        "english": "No, but when I do I use both lights together"
+      },
+      {
+        "russian": "Я спрашивала предыдущего владельца про это",
+        "audioName": "Line_196",
+        "english": "I asked the last owner about it"
+      },
+      {
+        "russian": "Как давно ты купила этот дом",
+        "audioName": "Line_197",
+        "english": "When you bought the house?"
+      },
+      {
+        "russian": "Что он сказал",
+        "audioName": "Line_198",
+        "english": "What did he say?"
+      },
+      {
+        "russian": "Я не помню",
+        "audioName": "Line_199",
+        "english": "I don’t remember"
+      },
+      {
+        "russian": "Ах, мир электроники",
+        "audioName": "Line_200",
+        "english": "The world of electronics"
+      },
+      {
+        "russian": "Через час пора выходить",
+        "audioName": "Line_201",
+        "english": "We need to be going in an hour"
+      },
+      {
+        "russian": "Я хочу прийти на школьную встречу вовремя",
+        "audioName": "Line_202",
+        "english": "I want to be on time for the school meeting"
+      }
+    ],
+    [
+      {
+        "russian": "Мне важно быть там вовремя",
+        "audioName": "Line_203",
+        "english": "It’s important I’m on time"
+      },
+      {
+        "russian": "Это может подождать",
+        "audioName": "Line_204",
+        "english": "That can wait until later"
+      },
+      {
+        "russian": "Сейчас мне нужно заполнить этот бланк",
+        "audioName": "Line_205",
+        "english": "I need to fill out the form now"
+      },
+      {
+        "russian": "Какой бланк",
+        "audioName": "Line_206",
+        "english": "What form?"
+      },
+      {
+        "russian": "Бланк на еду",
+        "audioName": "Line_207",
+        "english": "The form for the food"
+      },
+      {
+        "russian": "Мне нужно оставить себе копию",
+        "audioName": "Line_208",
+        "english": "I need to keep a copy"
+      },
+      {
+        "russian": "Одна копия детям в школе",
+        "audioName": "Line_209",
+        "english": "One copy goes with the children at the school"
+      },
+      {
+        "russian": "Убери лапы",
+        "audioName": "Line_210",
+        "english": "Get your feet off it!"
+      },
+      {
+        "russian": "Тебе нужно научиться держать лапы на земле",
+        "audioName": "Line_211",
+        "english": "You need to keep your feet on land"
+      },
+      {
+        "russian": "По какой стороне он прошел",
+        "audioName": "Line_212",
+        "english": "Which side did he walk on?"
+      },
+      {
+        "russian": "По стороне, на которой ничего не написано",
+        "audioName": "Line_213",
+        "english": "The side without writing on it"
+      }
+    ],
+    [
+      {
+        "russian": "Это хорошо. Этот кот мальчик",
+        "audioName": "Line_214",
+        "english": "Good. Is that a boy cat?"
+      },
+      {
+        "russian": "Да, когда-то он был мальчиком",
+        "audioName": "Line_215",
+        "english": "He was once"
+      },
+      {
+        "russian": "Животные всегда наводят такой беспорядок",
+        "audioName": "Line_216",
+        "english": "Animals make such a mess"
+      },
+      {
+        "russian": "Но с ними жизнь веселей",
+        "audioName": "Line_217",
+        "english": "But they make life fun"
+      },
+      {
+        "russian": "И мне этого достаточно",
+        "audioName": "Line_218",
+        "english": "That’s enough for me"
+      },
+      {
+        "russian": "Он залез в твою тарелку",
+        "audioName": "Line_219",
+        "english": "He took a bite out of your food"
+      },
+      {
+        "russian": "Иногда он меня просто сводит с ума",
+        "audioName": "Line_220",
+        "english": "Sometimes he makes me crazy"
+      },
+      {
+        "russian": "Четыре раза залез в тарелку",
+        "audioName": "Line_221",
+        "english": "Four bites"
+      },
+      {
+        "russian": "Я на голову ему это одену",
+        "audioName": "Line_222",
+        "english": "I should put this on his head"
+      },
+      {
+        "russian": "Мне нужна полка, до которой ему не достать",
+        "audioName": "Line_223",
+        "english": "I need a shelf above his reach"
+      }
+    ],
+    [
+      {
+        "russian": "Ты слишком добра к коту",
+        "audioName": "Line_224",
+        "english": "You’re too kind to the cat"
+      },
+      {
+        "russian": "Я только начала его воспитывать",
+        "audioName": "Line_225",
+        "english": "I just began to train him"
+      },
+      {
+        "russian": "Я почти уверен, что у тебя это получится",
+        "audioName": "Line_226",
+        "english": "I almost think you can"
+      },
+      {
+        "russian": "А ты живешь с кошкой",
+        "audioName": "Line_227",
+        "english": "Do you live with a cat?"
+      },
+      {
+        "russian": "Только на страницах календаря",
+        "audioName": "Line_228",
+        "english": "Only on a calendar page"
+      },
+      {
+        "russian": "У меня никогда не было живой кошки",
+        "audioName": "Line_229",
+        "english": "I never got a real cat"
+      },
+      {
+        "russian": "На этой земле уже слишком много кошек",
+        "audioName": "Line_230",
+        "english": "There are too many cats on this earth"
+      },
+      {
+        "russian": "Они нужны нам",
+        "audioName": "Line_231",
+        "english": "We need them"
+      },
+      {
+        "russian": "Как высоко он прыгает",
+        "audioName": "Line_232",
+        "english": "How far can he jump?"
+      },
+      {
+        "russian": "По мою руку",
+        "audioName": "Line_233",
+        "english": "As high as my hand"
+      }
+    ],
+    [
+      {
+        "russian": "Это очень высоко",
+        "audioName": "Line_234",
+        "english": "That’s very high"
+      },
+      {
+        "russian": "Если бы ты его только видел в прошлом году",
+        "audioName": "Line_235",
+        "english": "You should have seen him last year"
+      },
+      {
+        "russian": "Он прыгнул на мою маму",
+        "audioName": "Line_236",
+        "english": "He jumped on my mother"
+      },
+      {
+        "russian": "На ней была светлая одежда",
+        "audioName": "Line_237",
+        "english": "She was wearing light clothes"
+      },
+      {
+        "russian": "Его темная шерсть была на каждой части ее тела",
+        "audioName": "Line_238",
+        "english": "His dark fur got on every part of her"
+      },
+      {
+        "russian": "В ее стране не бывает домашних кошек",
+        "audioName": "Line_239",
+        "english": "She doesn’t have pet cats in her country"
+      },
+      {
+        "russian": "Мой отец терпеть их не может",
+        "audioName": "Line_240",
+        "english": "My father hates them"
+      },
+      {
+        "russian": "Мой отец на них спускал собак",
+        "audioName": "Line_241",
+        "english": "My father will let the dogs go after them"
+      },
+      {
+        "russian": "Они так шумят по ночам",
+        "audioName": "Line_242",
+        "english": "They make too much noise at night"
+      },
+      {
+        "russian": "Посмотри на эту фотографию",
+        "audioName": "Line_243",
+        "english": "Look at this picture"
+      }
+    ],
+    [
+      {
+        "russian": "Он бежит за ними",
+        "audioName": "Line_244",
+        "english": "He’s following them?"
+      },
+      {
+        "russian": "Да, она были очень шумные",
+        "audioName": "Line_245",
+        "english": "Yes, they were being very loud"
+      },
+      {
+        "russian": "Но как-то раз я решила изучить их",
+        "audioName": "Line_246",
+        "english": "But one day I began to study them"
+      },
+      {
+        "russian": "Я посмотрела на них по-другому",
+        "audioName": "Line_247",
+        "english": "I took a second look at them"
+      },
+      {
+        "russian": "У них такие красивые глаза",
+        "audioName": "Line_248",
+        "english": "Their eyes are so beautiful"
+      },
+      {
+        "russian": "Вскоре после я полюбила их",
+        "audioName": "Line_249",
+        "english": "I soon learned to love them"
+      },
+      {
+        "russian": "Настало время, когда я решила завести кота",
+        "audioName": "Line_250",
+        "english": "The time came when I wanted one"
+      },
+      {
+        "russian": "Какую историю тебе пришлось выдумать, чтобы родители разрешили тебе завести кота",
+        "audioName": "Line_251",
+        "english": "What story did you tell your parents to get one?"
+      },
+      {
+        "russian": "Я сказала, что кот будет отпугивать мальчиков",
+        "audioName": "Line_252",
+        "english": "I said it would keep the boys away"
+      },
+      {
+        "russian": "Сразу после он у меня появился",
+        "audioName": "Line_253",
+        "english": "Since then I have had one"
+      }
+    ],
+    [
+      {
+        "russian": "Мой первый кот был белый",
+        "audioName": "Line_254",
+        "english": "My first one was white"
+      },
+      {
+        "russian": "Однажды он пропал на пять дней",
+        "audioName": "Line_255",
+        "english": "Once he left for five days"
+      },
+      {
+        "russian": "Я думала, что он уже никогда не вернется",
+        "audioName": "Line_256",
+        "english": "I didn’t think he’d ever come back"
+      },
+      {
+        "russian": "Я сделала объявления на бумаге",
+        "audioName": "Line_257",
+        "english": "I made signs out of paper"
+      },
+      {
+        "russian": "Тебе, наверное, было очень тяжело, когда он потерялся",
+        "audioName": "Line_258",
+        "english": "It must have been hard to lose him"
+      },
+      {
+        "russian": "Он всегда был рядом со мной",
+        "audioName": "Line_259",
+        "english": "He was always near me"
+      },
+      {
+        "russian": "Я написала одно предложение в объявлении про это",
+        "audioName": "Line_260",
+        "english": "I wrote a sentence in the ad about that"
+      },
+      {
+        "russian": "От этого мне стало легче",
+        "audioName": "Line_261",
+        "english": "It made me feel better"
+      },
+      {
+        "russian": "А потом один из соседей нашел его. Это было самым лучшим, что когда-либо случалось",
+        "audioName": "Line_262",
+        "english": "Then a neighbor found him. It was the best thing!"
+      },
+      {
+        "russian": "Он оказался на другом конце города",
+        "audioName": "Line_263",
+        "english": "He had gone all the way across town"
+      }
+    ],
+    [
+      {
+        "russian": "Это было летом",
+        "audioName": "Line_264",
+        "english": "It was during the summer"
+      },
+      {
+        "russian": "Прямо как сегодня",
+        "audioName": "Line_265",
+        "english": "Just like today"
+      },
+      {
+        "russian": "Все играли на улице",
+        "audioName": "Line_266",
+        "english": "All the others were out playing"
+      },
+      {
+        "russian": "Но я осталась дома",
+        "audioName": "Line_267",
+        "english": "However, I stayed inside"
+      },
+      {
+        "russian": "Ты была уверена, что его кто-нибудь найдет",
+        "audioName": "Line_268",
+        "english": "You were sure someone would find him?"
+      },
+      {
+        "russian": "О, да",
+        "audioName": "Line_269",
+        "english": "Oh yes"
+      },
+      {
+        "russian": "Мой новый кот тоже много значит для меня",
+        "audioName": "Line_270",
+        "english": "My new cat means a lot to me too"
+      },
+      {
+        "russian": "Я поняла это сразу как его увидела",
+        "audioName": "Line_271",
+        "english": "I knew it when I met him"
+      },
+      {
+        "russian": "Это же просто кот",
+        "audioName": "Line_272",
+        "english": "It’s just a cat"
+      },
+      {
+        "russian": "Но хорошо, я попытаюсь понять тебя",
+        "audioName": "Line_273",
+        "english": "Ok, I’ll try to understand"
+      },
+      {
+        "russian": "Мой друг связался со мной, когда он родился",
+        "audioName": "Line_274",
+        "english": "My friend told me when he was born"
+      }
+    ],
+    [
+      {
+        "russian": "Я взяла его очень маленьким",
+        "audioName": "Line_275",
+        "english": "I got him very young"
+      },
+      {
+        "russian": "Я проехала много миль, чтобы увидеть его",
+        "audioName": "Line_276",
+        "english": "I drove miles to see him"
+      },
+      {
+        "russian": "Солнце так ярко светило в тот день",
+        "audioName": "Line_277",
+        "english": "The sun was shining that day"
+      },
+      {
+        "russian": "У меня было несколько вариантов как доехать до того места",
+        "audioName": "Line_278",
+        "english": "There were several ways to get there"
+      },
+      {
+        "russian": "Что это за штука",
+        "audioName": "Line_279",
+        "english": "What is this thing?"
+      },
+      {
+        "russian": "Ты что, не хочешь услышать всю историю",
+        "audioName": "Line_280",
+        "english": "Do you want to hear the whole story or not?"
+      },
+      {
+        "russian": "Я вот слушаю твои истории",
+        "audioName": "Line_281",
+        "english": "I listen to your stories"
+      },
+      {
+        "russian": "Например, я слышала твою историю про рыбалку несколько раз",
+        "audioName": "Line_282",
+        "english": "For example I heard your fishing story several times"
+      }
+    ],
+    [
+      {
+        "russian": "И каждый раз она немного меняется",
+        "audioName": "Line_283",
+        "english": "It seems to change every time"
+      },
+      {
+        "russian": "Ну, отвечай",
+        "audioName": "Line_284",
+        "english": "Well, answer me"
+      },
+      {
+        "russian": "Эта комната выглядит такой маленькой",
+        "audioName": "Line_285",
+        "english": "This room seems so small"
+      },
+      {
+        "russian": "Она напоминает мне каюту на корабле в море",
+        "audioName": "Line_286",
+        "english": "It reminds me of my cabin at sea"
+      },
+      {
+        "russian": "Как тогда, когда волны бросали меня от стены к стене",
+        "audioName": "Line_287",
+        "english": "Like when the waves threw me against the walls"
+      },
+      {
+        "russian": "Эти волны тебя по макушке ударили",
+        "audioName": "Line_288",
+        "english": "Did they hit you on the top of your head?"
+      },
+      {
+        "russian": "Ты снова перевел разговор на себя",
+        "audioName": "Line_289",
+        "english": "Again you’ve turned the conversation back to you"
+      },
+      {
+        "russian": "Ты должна научиться переходить к сути рассказа",
+        "audioName": "Line_290",
+        "english": "You should learn to get to the point of your stories"
+      },
+      {
+        "russian": "Тогда к сути, я выезжаю из города",
+        "audioName": "Line_291",
+        "english": "The point was I drove out of the city"
+      }
+    ],
+    [
+      {
+        "russian": "Ну не злись, я просто хотел пошутить",
+        "audioName": "Line_292",
+        "english": "Don’t get mad, I just wanted to play with you"
+      },
+      {
+        "russian": "Я переходила к сути",
+        "audioName": "Line_293",
+        "english": "I was moving toward a point in the story"
+      },
+      {
+        "russian": "По ощущениям их аж пять",
+        "audioName": "Line_294",
+        "english": "It seemed like five points"
+      },
+      {
+        "russian": "Эй, кот, ты растрачиваешь свои девять жизней",
+        "audioName": "Line_295",
+        "english": "Hey cat, you’re using up your 9 lives"
+      },
+      {
+        "russian": "Он сам о себе позаботится",
+        "audioName": "Line_296",
+        "english": "He can take care of himself. eng colloq"
+      },
+      {
+        "russian": "Как обычно",
+        "audioName": "Line_297",
+        "english": "He usually does"
+      },
+      {
+        "russian": "Еще как, поспорим на деньги",
+        "audioName": "Line_298",
+        "english": "You can bet money on it"
+      },
+      {
+        "russian": "Эй, кот, ты видел мои деньги",
+        "audioName": "Line_299",
+        "english": "Hey cat, have you seen my money?"
+      },
+      {
+        "russian": "Он их не брал",
+        "audioName": "Line_300",
+        "english": "He didn’t take it"
+      }
+    ],
+    [
+      {
+        "russian": "Ты их потратил на машину этим утром",
+        "audioName": "Line_301",
+        "english": "You spent it on your car this morning"
+      },
+      {
+        "russian": "А что, мне нужно было их отдать детям с их яблонями",
+        "audioName": "Line_302",
+        "english": "Should I have given it to the kids with the apple trees? one word in Russian"
+      },
+      {
+        "russian": "Я уверена, что им бы это понравилось",
+        "audioName": "Line_303",
+        "english": "I’m sure they would have liked it"
+      },
+      {
+        "russian": "А они смогут отремонтировать мне кузов машины",
+        "audioName": "Line_304",
+        "english": "Can they repair the body of my car?"
+      },
+      {
+        "russian": "Когда-то это была неплохая машина",
+        "audioName": "Line_305",
+        "english": "Once upon a time it was a nice car"
+      },
+      {
+        "russian": "Я дал ее на время моей семье",
+        "audioName": "Line_306",
+        "english": "I let my family borrow it"
+      },
+      {
+        "russian": "Она им снова понадобится потом",
+        "audioName": "Line_307",
+        "english": "They’ll need it again later"
+      },
+      {
+        "russian": "Все хорошее всегда оборачивается плохим",
+        "audioName": "Line_308",
+        "english": "Nice things always seem to turn bad"
+      }
+    ],
+    [
+      {
+        "russian": "Все машины сразу же стареют, как только ты садишься за руль и выезжаешь",
+        "audioName": "Line_309",
+        "english": "As soon as you move them they’re old"
+      },
+      {
+        "russian": "С этим нужно смириться",
+        "audioName": "Line_310",
+        "english": "It’s a fact we must face. eng colloq"
+      },
+      {
+        "russian": "Посмотри на улицу",
+        "audioName": "Line_311",
+        "english": "Look out the door"
+      },
+      {
+        "russian": "Газон был подстрижен",
+        "audioName": "Line_312",
+        "english": "Has the grass been cut?"
+      },
+      {
+        "russian": "Я думал, что ты этим занималась вчера",
+        "audioName": "Line_313",
+        "english": "I thought you had it done yesterday"
+      },
+      {
+        "russian": "Разве у тебя не целая команда садовников",
+        "audioName": "Line_314",
+        "english": "Don’t you have a group of gardeners?"
+      },
+      {
+        "russian": "Да, это так",
+        "audioName": "Line_315",
+        "english": "That’s true"
+      },
+      {
+        "russian": "Но в половине случаев они не приходят",
+        "audioName": "Line_316",
+        "english": "But half the time they don’t show up"
+      },
+      {
+        "russian": "Я оставила им записку и подчеркнула важные предложения красным",
+        "audioName": "Line_317",
+        "english": "I wrote them a note and underlined the important sentences in red"
+      }
+    ],
+    [
+      {
+        "russian": "За рыбой в пруду они тоже присматривают",
+        "audioName": "Line_318",
+        "english": "Do they take care of the fish in the pond?"
+      },
+      {
+        "russian": "Или они занимаются только растениями",
+        "audioName": "Line_319",
+        "english": "Or just work on the plants?"
+      },
+      {
+        "russian": "Да, и за тем, и за другим, они присматривают за всем живым",
+        "audioName": "Line_320",
+        "english": "Both, everything that’s living"
+      },
+      {
+        "russian": "Я хотела завести маленьких черных рыбок, которые едят водоросли",
+        "audioName": "Line_321",
+        "english": "I wanted to get some of those short black fish that eat the algae"
+      },
+      {
+        "russian": "Но они в Америке запрещены",
+        "audioName": "Line_322",
+        "english": "But they’re not allowed in the United States"
+      },
+      {
+        "russian": "Я сбегаю за ними в магазин",
+        "audioName": "Line_323",
+        "english": "I’ll run to the store and get you some"
+      },
+      {
+        "russian": "Существует много разных видов рыб, которые едят водоросли",
+        "audioName": "Line_324",
+        "english": "There are many kinds of fish that eat algae"
+      },
+      {
+        "russian": "Я прочитал это в книге, которую ты мне подарила на Рождество",
+        "audioName": "Line_325",
+        "english": "I read about it in the book you gave me for Christmas"
+      }
+    ],
+    [
+      {
+        "russian": "Я прочитал это в книге, которую ты мне подарила на Рождество",
+        "audioName": "Line_326",
+        "english": "I read about it in the book you gave me for Christmas"
+      },
+      {
+        "russian": "А если магазин не открыт, я могу заказать их через интернет",
+        "audioName": "Line_327",
+        "english": "Or I can order some online if the store if isn’t open"
+      },
+      {
+        "russian": "Но пруд же прямо в земле",
+        "audioName": "Line_328",
+        "english": "But the pond is in the ground"
+      },
+      {
+        "russian": "Трубы подкачивают в пруд очень холодную воду",
+        "audioName": "Line_329",
+        "english": "The water lines run really cold water into it"
+      },
+      {
+        "russian": "Не всякая рыба может в нем выжить",
+        "audioName": "Line_330",
+        "english": "Not every kind of fish could live there"
+      },
+      {
+        "russian": "Помнишь, когда я поставил стол у пруда",
+        "audioName": "Line_331",
+        "english": "Remember when I made the table next to pond"
+      },
+      {
+        "russian": "Он был под деревом",
+        "audioName": "Line_332",
+        "english": "It used to be under the tree"
+      }
+    ],
+    [
+      {
+        "russian": "Конечно, помню",
+        "audioName": "Line_333",
+        "english": "Of course I remember"
+      },
+      {
+        "russian": "Мне не нравилось, когда он стоят под деревом перед домом",
+        "audioName": "Line_334",
+        "english": "I didn’t like it under the tree in the front yard"
+      },
+      {
+        "russian": "Там намного лучше",
+        "audioName": "Line_335",
+        "english": "It’s better there"
+      },
+      {
+        "russian": "Я знаю",
+        "audioName": "Line_336",
+        "english": "I know"
+      },
+      {
+        "russian": "Стол был из американского дуба",
+        "audioName": "Line_337",
+        "english": "It’s made from American oak wood"
+      },
+      {
+        "russian": "Как думаешь, в доме он много места займет",
+        "audioName": "Line_338",
+        "english": "Would it take up too much space inside?"
+      },
+      {
+        "russian": "Да, я попробовала так сделать год назад",
+        "audioName": "Line_339",
+        "english": "Yes, I tried that a year ago"
+      },
+      {
+        "russian": "Сразу после того, как ты его доделал",
+        "audioName": "Line_340",
+        "english": "Right after you finished making it"
+      },
+      {
+        "russian": "Миссис Смит хотела, чтобы я ей тоже сделал стол",
+        "audioName": "Line_341",
+        "english": "Mrs. Smith wanted me to make her one"
+      },
+      {
+        "russian": "Я видела ее сегодня рано утром",
+        "audioName": "Line_342",
+        "english": "I saw her early this morning"
+      },
+      {
+        "russian": "Я спрошу ее хочет ли она все еще стол",
+        "audioName": "Line_343",
+        "english": "I’ll ask her if she still wants one"
+      }
+    ],
+    [
+      {
+        "russian": "Я многому научился, когда я делал твой стол",
+        "audioName": "Line_344",
+        "english": "I learned a lot when I made yours"
+      },
+      {
+        "russian": "Я соединил доски очень плотно, чтобы через них ничего не смогло прошло",
+        "audioName": "Line_345",
+        "english": "When I brought the boards close together nothing could get through them"
+      },
+      {
+        "russian": "Но хоть я и покрыл его лаком, начала расти плесень",
+        "audioName": "Line_346",
+        "english": "Even though I treated them with varnish, mold started growing"
+      },
+      {
+        "russian": "Тогда у меня появилась идея",
+        "audioName": "Line_347",
+        "english": "I got an idea"
+      },
+      {
+        "russian": "Я позвонил другу Джону, он плотник",
+        "audioName": "Line_348",
+        "english": "I made a call to me friend John who’s a carpenter"
+      },
+      {
+        "russian": "Он сказал мне, что доски не должны быть слишком близко друг к другу. Нужно, чтобы через них проходил воздух",
+        "audioName": "Line_349",
+        "english": "He told me not to make the boards so close together because the air needs to get through them"
+      },
+      {
+        "russian": "А да, он жил в том же городе, где я взяла своего кота",
+        "audioName": "Line_350",
+        "english": "Oh yeah, he lived in the town where I got my cat"
+      },
+      {
+        "russian": "Он делает хорошую мебель",
+        "audioName": "Line_351",
+        "english": "He makes nice furniture"
+      }
+    ],
+    [
+      {
+        "russian": "Он стал известным благодаря этому",
+        "audioName": "Line_352",
+        "english": "He became well known for that"
+      },
+      {
+        "russian": "Если ты подыскиваешь шезлонг, я могу поговорить с ним",
+        "audioName": "Line_353",
+        "english": "If you’re looking to add a lawn chair I can call him"
+      },
+      {
+        "russian": "Если бы он открыл свой магазин в городе, он мог бы быть богатым",
+        "audioName": "Line_354",
+        "english": "He’d become rich if he opened a store in town"
+      },
+      {
+        "russian": "Бизнес мог бы сильно разрастись",
+        "audioName": "Line_355",
+        "english": "It could grow very large"
+      },
+      {
+        "russian": "Он еще не готов к этому",
+        "audioName": "Line_356",
+        "english": "He’s not ready for that yet"
+      },
+      {
+        "russian": "Ему нравится самому чертить и делать все своими руками",
+        "audioName": "Line_357",
+        "english": "He likes to draw everything himself and then make it with his own hands"
+      },
+      {
+        "russian": "На меньшее Джон не пойдет",
+        "audioName": "Line_358",
+        "english": "Anything less wouldn’t be good enough for John"
+      }
+    ],
+    [
+      {
+        "russian": "На меньшее Джон не пойдет",
+        "audioName": "Line_359",
+        "english": "Anything less wouldn’t be good enough for John"
+      },
+      {
+        "russian": "Там, где он живет, ветрено",
+        "audioName": "Line_360",
+        "english": "There’s so much wind where he lives"
+      },
+      {
+        "russian": "Он любит ветреные места за горами",
+        "audioName": "Line_361",
+        "english": "He likes the windy places behind the mountains"
+      },
+      {
+        "russian": "Я не могу это понять",
+        "audioName": "Line_362",
+        "english": "I cannot understand that"
+      },
+      {
+        "russian": "Как-то раз я приехал его навестить и нашел письмо, которое я ему написал",
+        "audioName": "Line_363",
+        "english": "Once when I was visiting him I found a letter I wrote him"
+      },
+      {
+        "russian": "Оно было в куче других писем",
+        "audioName": "Line_364",
+        "english": "It was among a pile of letters"
+      },
+      {
+        "russian": "Он подошел ко мне и сказал, что он не может читать",
+        "audioName": "Line_365",
+        "english": "He comes up to me and says he’s not able to read"
+      }
+    ],
+    [
+      {
+        "russian": "Он подошел ко мне и сказал, что он не может читать",
+        "audioName": "Line_366",
+        "english": "He comes up to me and says he’s not able to read"
+      },
+      {
+        "russian": "Он сказал, что его собака читает лучше",
+        "audioName": "Line_367",
+        "english": "He said his dog can read better than he can"
+      },
+      {
+        "russian": "Ты мог бы ему показать",
+        "audioName": "Line_368",
+        "english": "You could have shown him"
+      },
+      {
+        "russian": "Я имею ввиду, что научиться читать по-английски сложн",
+        "audioName": "Line_369",
+        "english": "I mean English is hard to learn to read"
+      },
+      {
+        "russian": "5 гласных производят 18 звуков, и другие правила",
+        "audioName": "Line_370",
+        "english": "5 vowels make 18 sounds, and all the rest of the rules"
+      },
+      {
+        "russian": "Может быть я ему объясню",
+        "audioName": "Line_371",
+        "english": "Perhaps I will"
+      },
+      {
+        "russian": "Я уверена, что у тебя бы получилось",
+        "audioName": "Line_372",
+        "english": "I’m certain you could"
+      },
+      {
+        "russian": "Уже есть шесть часов",
+        "audioName": "Line_373",
+        "english": "Is it six o’clock yet?"
+      },
+      {
+        "russian": "Нет",
+        "audioName": "Line_374",
+        "english": "No"
+      },
+      {
+        "russian": "Мне хочется разжечь камин вечером",
+        "audioName": "Line_375",
+        "english": "I feel like making a fire tonight"
+      }
+    ],
+    [
+      {
+        "russian": "Мне хочется разжечь камин вечером",
+        "audioName": "Line_376",
+        "english": "I feel like making a fire tonight"
+      },
+      {
+        "russian": "Ты за",
+        "audioName": "Line_377",
+        "english": "Would you like that?"
+      },
+      {
+        "russian": "Да, всё для этого готово",
+        "audioName": "Line_378",
+        "english": "Yes, everything is ready for making one"
+      },
+      {
+        "russian": "В прошлый раз часть дров была еще сырая",
+        "audioName": "Line_379",
+        "english": "Last time some of the wood was still green"
+      },
+      {
+        "russian": "Да, но у тебя все равно получилось разжечь огонь",
+        "audioName": "Line_380",
+        "english": "Yes but you still built a good one"
+      },
+      {
+        "russian": "Я помню, это бы особенный момент",
+        "audioName": "Line_381",
+        "english": "I remember it being very special"
+      },
+      {
+        "russian": "Ты выскочил в город купить целый пакет зефира",
+        "audioName": "Line_382",
+        "english": "You ran to town to get a full bag of marshmallows"
+      },
+      {
+        "russian": "Огонь в камине был бы неполным без зефира",
+        "audioName": "Line_383",
+        "english": "No fire is complete without marshmallows"
+      }
+    ],
+    [
+      {
+        "russian": "О, да. Я обожаю горячий зефир",
+        "audioName": "Line_384",
+        "english": "Oh yes! I love hot marshmallows"
+      },
+      {
+        "russian": "Человек, который хочет что-нибудь другое просто сумасшедший",
+        "audioName": "Line_385",
+        "english": "A person would be crazy to want anything else"
+      },
+      {
+        "russian": "На следующей неделе будет ярмарка штата. Ты хочешь на нее сходить",
+        "audioName": "Line_386",
+        "english": "The state fair is next week. You want to go?"
+      },
+      {
+        "russian": "Конечно",
+        "audioName": "Line_387",
+        "english": "Sure!"
+      },
+      {
+        "russian": "В этот раз мы не отпустим билеты",
+        "audioName": "Line_388",
+        "english": "Hold onto those tickets this time"
+      },
+      {
+        "russian": "Я составлю список того, что нам нужно",
+        "audioName": "Line_389",
+        "english": "I’m making a list of everything we need"
+      },
+      {
+        "russian": "В прошлом году мы простояли в очереди с сотней людей",
+        "audioName": "Line_390",
+        "english": "Last year we stood in line with a hundred people"
+      },
+      {
+        "russian": "По этому видно, как ярмарка популярна",
+        "audioName": "Line_391",
+        "english": "That shows you how popular it is"
+      }
+    ],
+    [
+      {
+        "russian": "Там, кажется, было десять групп",
+        "audioName": "Line_392",
+        "english": "I think there were ten bands"
+      },
+      {
+        "russian": "Ярмарка очень быстро закончилась",
+        "audioName": "Line_393",
+        "english": "It all went by too fast"
+      },
+      {
+        "russian": "Мне казалось, что там были абсолютно все",
+        "audioName": "Line_394",
+        "english": "It seemed like everyone was there"
+      },
+      {
+        "russian": "Мы понравилось, как мы провели время вдвоем",
+        "audioName": "Line_395",
+        "english": "I felt good being there with you"
+      },
+      {
+        "russian": "Ты заставлял меня танцевать всю ночь",
+        "audioName": "Line_396",
+        "english": "You kept me dancing all night!"
+      },
+      {
+        "russian": "И фейерверк на День независимости был потрясающий. Да, Боже, храни Америку",
+        "audioName": "Line_397",
+        "english": "And the 4th of July fireworks were great. I mean, God bless America!"
+      },
+      {
+        "russian": "Ты заметил, как все пели",
+        "audioName": "Line_398",
+        "english": "Did you notice everyone singing?"
+      },
+      {
+        "russian": "Даже те, кто не может попадать в ноты",
+        "audioName": "Line_399",
+        "english": "Even people who can’t sing in tune"
+      },
+      {
+        "russian": "У тебя такой сильный голос",
+        "audioName": "Line_400",
+        "english": "You have such a strong voice"
+      }
+    ],
+    [
+      {
+        "russian": "Наверное, мне нужно было петь громко, чтобы попадать в ноты",
+        "audioName": "Line_401",
+        "english": "I probably needed to sing loud so I could stay in tune"
+      },
+      {
+        "russian": "Мы пели, как птицы",
+        "audioName": "Line_402",
+        "english": "We sounded like birds"
+      },
+      {
+        "russian": "Все птицы, наверное, улетели подальше от этого места",
+        "audioName": "Line_403",
+        "english": "All the birds must have cleared out of the area"
+      },
+      {
+        "russian": "А помнишь представления с лошадьми",
+        "audioName": "Line_404",
+        "english": "Remember the horse show?"
+      },
+      {
+        "russian": "Я помню двух индейцев, которые выиграли абсолютно все призы",
+        "audioName": "Line_405",
+        "english": "I remember the two Indians who won all the trophies"
+      },
+      {
+        "russian": "В чем дело",
+        "audioName": "Line_406",
+        "english": "What’s the matter?"
+      },
+      {
+        "russian": "Звучит так, как будто бы завидуешь",
+        "audioName": "Line_407",
+        "english": "It sounds like you’re jealous"
+      },
+      {
+        "russian": "Нет, я думаю то, как они заставили лошадей встать на коробку в начале представления, было великолепно",
+        "audioName": "Line_408",
+        "english": "No, I thought it was great the way they made the horses stand on a box at the start of the routine"
+      }
+    ],
+    [
+      {
+        "russian": "Нет, я думаю то, как они заставили лошадей встать на коробку в начале представления, было великолепно",
+        "audioName": "Line_409",
+        "english": "No, I thought it was great the way they made the horses stand on a box at the start of the routine"
+      },
+      {
+        "russian": "Это великолепная дрессура",
+        "audioName": "Line_410",
+        "english": "That’s great training!"
+      },
+      {
+        "russian": "Я брала уроки верховой езды",
+        "audioName": "Line_411",
+        "english": "I took a class on horse riding"
+      },
+      {
+        "russian": "А это часть твоей жизни, о которой я ни разу не слышал",
+        "audioName": "Line_412",
+        "english": "That’s a piece of your life I never heard about"
+      },
+      {
+        "russian": "Сначала мы шли очень медленно",
+        "audioName": "Line_413",
+        "english": "We started out very slowly"
+      },
+      {
+        "russian": "Мы шли по тропинке вдоль реки",
+        "audioName": "Line_414",
+        "english": "We had one trail along the river"
+      },
+      {
+        "russian": "А я все смотрела на гладь воды",
+        "audioName": "Line_415",
+        "english": "I would watch the surface of the water"
+      },
+      {
+        "russian": "И считала сколько было камней",
+        "audioName": "Line_416",
+        "english": "I would count the numbers of rocks"
+      },
+      {
+        "russian": "Это необычно",
+        "audioName": "Line_417",
+        "english": "That’s not a common thing to do"
+      },
+      {
+        "russian": "Это помогало мне перестать нервничать",
+        "audioName": "Line_418",
+        "english": "It would stop me from worrying"
+      }
+    ],
+    [
+      {
+        "russian": "Ведь я была верхом на таком большом животном, и учитель обычно говорил так быстро, что я не понимала какой именно дорогой мне ехать",
+        "audioName": "Line_419",
+        "english": "There I am up on this big animal, and the teacher would talk so quickly I didn’t know whether I should go this way or that"
+      },
+      {
+        "russian": "Но когда ты считала камни, все было хорошо",
+        "audioName": "Line_420",
+        "english": "But when you counted the rocks everything seemed fine?"
+      },
+      {
+        "russian": "Да, какие-то камни было круглые, какие-то темные",
+        "audioName": "Line_421",
+        "english": "Yes, some were round, some were dark"
+      },
+      {
+        "russian": "Смотря на камни, я теряла связь с реальностью",
+        "audioName": "Line_422",
+        "english": "I would get lost looking at them"
+      },
+      {
+        "russian": "и только когда одна из девушек проезжая мимо подгоняла меня,  я возвращалась обратно",
+        "audioName": "Line_423",
+        "english": "until some of the girls rode past me and told me to hurry up"
+      }
+    ],
+    [
+      {
+        "russian": "Как-то раз одна из девушек попробовала привязать синий мячик к хвосту моей лошади, когда мы ехали по дороге",
+        "audioName": "Line_424",
+        "english": "Once a girl tried to tie a blue ball to my horse’s tail as we went down the road"
+      },
+      {
+        "russian": "О, кстати, у меня есть пара вопросов, которые я хотел тебе задать",
+        "audioName": "Line_425",
+        "english": "Oh, there are some questions I’ve been meaning to ask you"
+      },
+      {
+        "russian": "О чем",
+        "audioName": "Line_426",
+        "english": "About what?"
+      },
+      {
+        "russian": "Кто придет на твою вечеринку на следующей неделе",
+        "audioName": "Line_427",
+        "english": "About who’s coming to your party next week?"
+      },
+      {
+        "russian": "Или ты решила перенести ее на следующий месяц вместо следующей недели",
+        "audioName": "Line_428",
+        "english": "Or are you having it next month instead?"
+      },
+      {
+        "russian": "Оба варианта пойдут",
+        "audioName": "Line_429",
+        "english": "Either date is good"
+      },
+      {
+        "russian": "Мне уже приходилось проводить вечеринки на и на тот день, и на другой",
+        "audioName": "Line_430",
+        "english": "I’ve held parties on both dates"
+      }
+    ],
+    [
+      {
+        "russian": "Многие из твоих друзей уже запланировали это на следующую неделю",
+        "audioName": "Line_431",
+        "english": "Lots of our friends are already planning for next week"
+      },
+      {
+        "russian": "К тому времени уже будет тепло",
+        "audioName": "Line_432",
+        "english": "It’ll be warm then"
+      },
+      {
+        "russian": "Но что, если семья Тэйлоров уже забронировала общественный центр",
+        "audioName": "Line_433",
+        "english": "But what if the community center is taken by the Taylor family?"
+      },
+      {
+        "russian": "Они уже ухали на лето",
+        "audioName": "Line_434",
+        "english": "They’ve already gone for the summer"
+      },
+      {
+        "russian": "Наконец-то",
+        "audioName": "Line_435",
+        "english": "Finally!"
+      },
+      {
+        "russian": "Я понимаю твое облегчение",
+        "audioName": "Line_436",
+        "english": "I understand your relief"
+      },
+      {
+        "russian": "На следующей неделе будет полная луна",
+        "audioName": "Line_437",
+        "english": "It will be a full moon next week"
+      },
+      {
+        "russian": "Я надеюсь, что никто не будет себя вести как животное",
+        "audioName": "Line_438",
+        "english": "I hope no one acts like an animal"
+      }
+    ],
+    [
+      {
+        "russian": "Полная луна иногда влияет на разум",
+        "audioName": "Line_439",
+        "english": "The full moon can affect your mind"
+      },
+      {
+        "russian": "Я не верю ни во что кроме нашего собственного рассудка, что может иметь такую силу над разумом",
+        "audioName": "Line_440",
+        "english": "I don’t believe anything outside your mind has that kind of power"
+      },
+      {
+        "russian": "Один мой друг сказал, что это проблема",
+        "audioName": "Line_441",
+        "english": "My friend says it’s a problem"
+      },
+      {
+        "russian": "Он говорит, что это потому, что солнце светит дольше",
+        "audioName": "Line_442",
+        "english": "He says it’s because the sun stays up longer"
+      },
+      {
+        "russian": "Дольше чем что",
+        "audioName": "Line_443",
+        "english": "Longer than what?"
+      },
+      {
+        "russian": "Дольше светит, чем зимой",
+        "audioName": "Line_444",
+        "english": "Than it does in the winter"
+      },
+      {
+        "russian": "Какой друг это сказал",
+        "audioName": "Line_445",
+        "english": "What friend says that?"
+      },
+      {
+        "russian": "Мой друг индеец, он жил глубоко в лесу, в горах",
+        "audioName": "Line_446",
+        "english": "My Indian friend, he lived deep in the woods, in the mountains"
+      }
+    ],
+    [
+      {
+        "russian": "Ты имеешь ввиду Апу? Того самого человека, который всегда носит большое тяжелое пальто",
+        "audioName": "Line_447",
+        "english": "You mean Apu, the guy who wears the big heavy coat all the time?"
+      },
+      {
+        "russian": "Ага, он тщательно следит за астрологией",
+        "audioName": "Line_448",
+        "english": "Yeah, he follows astrology very carefully"
+      },
+      {
+        "russian": "Да он сумасшедший. Я помню, как он сюда переехал",
+        "audioName": "Line_449",
+        "english": "He’s crazy! I remember when he moved here"
+      },
+      {
+        "russian": "Сначала все думали, что он просто красивый парень",
+        "audioName": "Line_450",
+        "english": "In the beginning everyone thought he was a beautiful guy"
+      },
+      {
+        "russian": "А потом он захотел все бросить и уехать жить в горы",
+        "audioName": "Line_451",
+        "english": "Then he wanted to leave everything and live in the mountains"
+      },
+      {
+        "russian": "Он сказал, что он на него снизошло просвещение",
+        "audioName": "Line_452",
+        "english": "He said he got enlightened there"
+      },
+      {
+        "russian": "Да это же просто одна из его игр",
+        "audioName": "Line_453",
+        "english": "That’s just a game he’s playing"
+      }
+    ],
+    [
+      {
+        "russian": "Он сказал, что это система знаний",
+        "audioName": "Line_454",
+        "english": "He said it’s a system of knowledge"
+      },
+      {
+        "russian": "Я приведу тебя в его дом",
+        "audioName": "Line_455",
+        "english": "I’ll bring you to his house"
+      },
+      {
+        "russian": "Сама посмотришь на него и поймешь",
+        "audioName": "Line_456",
+        "english": "Watch him, you’ll see"
+      },
+      {
+        "russian": "Он чокнутый",
+        "audioName": "Line_457",
+        "english": "He’s nuts!"
+      },
+      {
+        "russian": "О, уже шесть часов? Пойдем",
+        "audioName": "Line_458",
+        "english": "Oh it’s 6 o’clock. Shall we go?"
+      },
+      {
+        "russian": "А одежда высохла? Может занести одежду перед тем, как мы уйдем",
+        "audioName": "Line_459",
+        "english": "Are the clothes dry? Should we bring them in first?"
+      },
+      {
+        "russian": "Ей еще сохнуть часами",
+        "audioName": "Line_460",
+        "english": "They’ll take hours to dry"
+      },
+      {
+        "russian": "Ты уже заполнила бланк для школы",
+        "audioName": "Line_461",
+        "english": "Have you written up your form for school?"
+      },
+      {
+        "russian": "Я решила об этом не волноваться. Я потом это сделаю",
+        "audioName": "Line_462",
+        "english": "I’ve stopped worrying about that. I’ll do it later"
+      },
+      {
+        "russian": "Мы приедем с запасом времени",
+        "audioName": "Line_463",
+        "english": "We’ll get there within plenty of time"
+      },
+      {
+        "russian": "Эй, на пол",
+        "audioName": "Line_464",
+        "english": "Stay on the floor!"
+      }
+    ]
+  ]
+}

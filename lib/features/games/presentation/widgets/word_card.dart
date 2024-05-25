@@ -4,20 +4,21 @@ import 'package:hi_bob/core/utils/extensions/context_ext.dart';
 
 class WordCard extends StatelessWidget {
   final String word;
-  final VoidCallback onTap;
-  final bool matched, clicked;
+  final VoidCallback? onTap;
+  final bool highlightAsMatched, highlightAsClicked, highlightAsError;
   const WordCard({
     super.key,
     required this.word,
-    required this.onTap,
-    required this.matched,
-    required this.clicked,
+    this.onTap,
+    this.highlightAsMatched = false,
+    this.highlightAsClicked = false,
+    this.highlightAsError = false,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: clicked || matched ? null : onTap,
+      onTap: highlightAsClicked || highlightAsMatched ? null : onTap,
       radius: 16,
       borderRadius: BorderRadius.circular(16),
       child: Container(
@@ -25,14 +26,15 @@ class WordCard extends StatelessWidget {
           color: context.color.surface,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            width: clicked ? 3 : 1,
-            color: matched
+            width: highlightAsClicked ? 3 : 1,
+            color: highlightAsError ? context.color.error :
+              highlightAsMatched
                 ? context.color.primary
                     : Color(0xFFE5E5E5),
           ),
           boxShadow: [
             BoxShadow(
-              color: Color(0xFFE5E5E5),
+              color: highlightAsError ? context.color.error : Color(0xFFE5E5E5),
               offset: Offset(0, 2), // vertical shadow
             ),
           ],

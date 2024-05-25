@@ -124,7 +124,6 @@ class WrapHorizontally extends StatelessWidget {
     return ConstrainedBox(
       constraints: BoxConstraints(
         minWidth: widthOrFullScreen ?? context.screenWidth,
-        maxWidth: context.screenWidth,
       ),
       child: Wrap(
         alignment: WrapAlignment.spaceBetween,

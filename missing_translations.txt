@@ -9,12 +9,14 @@
     "lesson2Title",
     "congrats",
     "wrongAttempts",
+    "progress",
     "totalWords",
     "timeTaken",
     "getStartedTitle",
     "startEasyMode",
     "resume",
-    "startNormalMode"
+    "startNormalMode",
+    "lessonNumberSentenceNumber"
   ],
 
   "zh": [
@@ -27,11 +29,13 @@
     "lesson2Title",
     "congrats",
     "wrongAttempts",
+    "progress",
     "totalWords",
     "timeTaken",
     "getStartedTitle",
     "startEasyMode",
     "resume",
-    "startNormalMode"
+    "startNormalMode",
+    "lessonNumberSentenceNumber"
   ]
 }

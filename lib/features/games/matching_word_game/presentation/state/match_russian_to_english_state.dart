@@ -3,7 +3,7 @@ import 'package:hi_bob/features/games/data/local/english_russian_words.dart';
 import 'package:hi_bob/features/services/local_storage.dart';
 
 const String _gamePageStorageKey = 'lastMatchingWordsPageKey';
-const String _gameShuffleKey = 'lastMatchingWordsShuffleKey';
+const String _lastMatchingWordsIsEasyModeKey = 'lastMatchingWordsIsEasyModeKey';
 
 class RussianEnglishStateController {
   static RussianEnglishStateController? _instance;
@@ -33,7 +33,8 @@ class RussianEnglishStateController {
   }) async {
     if (resume) {
       _batchNumber = await _localStorage.getInt(_gamePageStorageKey) ?? 1;
-      _shuffle = await _localStorage.getBool(_gameShuffleKey);
+      final easyMode = await _localStorage.getBool(_lastMatchingWordsIsEasyModeKey);
+      _shuffle = !easyMode;
     }
     if (!resume) {
       _shuffle = shuffle;
@@ -43,8 +44,8 @@ class RussianEnglishStateController {
       _batchNumber,
     );
     await _localStorage.setBool(
-      _gameShuffleKey,
-      value: _shuffle,
+      _lastMatchingWordsIsEasyModeKey,
+      value: !_shuffle,
     );
     _loadBatchWords();
   }
@@ -176,7 +177,7 @@ class RussianEnglishStateController {
         1,
       );
       await _localStorage.setBool(
-        _gameShuffleKey,
+        _lastMatchingWordsIsEasyModeKey,
         value: false,
       );
       return;

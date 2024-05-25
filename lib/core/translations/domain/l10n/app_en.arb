@@ -8,11 +8,13 @@
  "lesson2Title" : "Matching Sentences Game",
  "congrats": "Congratulations",
  "wrongAttempts" : "You missed {count} times",
+ "progress"  : "Progress: {progressInfo}",
  "totalWords" : "Total Words: {count}",
  "timeTaken" : "Time Taken: {time} minutes",
  "getStartedTitle":  "Welcome!",
  "startEasyMode" : "Start Easy Mode",
  "resume" : "Resume",
- "startNormalMode"  : "Start Normal Mode"
+ "startNormalMode"  : "Start Normal Mode",
+ "lessonNumberSentenceNumber" : "Lesson {lessonNumber} - {sentenceNumber}"
 
 }

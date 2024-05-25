@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hi_bob/core/routing/domain/navigation.dart';
+import 'package:hi_bob/core/ui/assets/app_images.dart';
 import 'package:hi_bob/core/ui/containers/containers.dart';
 import 'package:hi_bob/core/ui/text/app_text.dart';
 import 'package:hi_bob/core/utils/extensions/context_ext.dart';
@@ -19,23 +20,30 @@ class LandingTabScreen extends StatelessWidget {
         centerTitle: false,
       ),
       body: SafeFullScreenContainer(
-        padding: EdgeInsets.all(
-          16,
-        ),
-        SingleChildScrollView(
-          physics: const ClampingScrollPhysics(),
-          child: WrapHorizontally(
-            Lessons.values
-                .map(
-                  (lesson) => LessonCard(
-                    lessonTitle: lesson.label(context),
-                    onClick: () => _onLessonClicked(context, lesson),
-                  ),
-                )
-                .toList(),
+          padding: EdgeInsets.all(
+            16,
           ),
-        ),
-      ),
+          TopLeftColumn([
+            Image.asset(
+              AppImages.mascotTeach.assetPath,
+              height: 100,
+            ),
+            Flexible(
+              child: SingleChildScrollView(
+                physics: const ClampingScrollPhysics(),
+                child: WrapHorizontally(
+                  Lessons.values
+                      .map(
+                        (lesson) => LessonCard(
+                          lessonTitle: lesson.label(context),
+                          onClick: () => _onLessonClicked(context, lesson),
+                        ),
+                      )
+                      .toList(),
+                ),
+              ),
+            ),
+          ])),
     );
   }
 
@@ -51,7 +59,8 @@ class LandingTabScreen extends StatelessWidget {
 
 enum Lessons {
   one,
-  two,;
+  two,
+  ;
 
   String label(BuildContext context) {
     switch (this) {
@@ -90,8 +99,8 @@ class LessonCard extends StatelessWidget {
         alignment: Alignment.center,
         child: P1(
           lessonTitle,
-            isTruncated : false,
-           txtAlign: TextAlign.center,
+          isTruncated: false,
+          txtAlign: TextAlign.center,
         ),
       ),
     );

@@ -92,4 +92,5 @@ Map<String, dynamic> _$UserPreferencesEntityToJson(
 const _$SupportedLanguagesEnumMap = {
   SupportedLanguages.english: 'en',
   SupportedLanguages.chinese: 'zh',
+  SupportedLanguages.russian: 'ru',
 };

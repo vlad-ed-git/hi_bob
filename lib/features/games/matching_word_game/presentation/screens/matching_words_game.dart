@@ -6,8 +6,8 @@ import 'package:hi_bob/core/ui/containers/containers.dart';
 import 'package:hi_bob/core/ui/text/app_text.dart';
 import 'package:hi_bob/core/utils/extensions/context_ext.dart';
 import 'package:hi_bob/features/games/matching_word_game/presentation/state/match_russian_to_english_state.dart';
-import 'package:hi_bob/features/games/matching_word_game/presentation/widgets/game_results.dart';
-import 'package:hi_bob/features/games/matching_word_game/presentation/widgets/get_started.dart';
+import 'package:hi_bob/features/games/presentation/widgets/game_results.dart';
+import 'package:hi_bob/features/games/presentation/widgets/get_started.dart';
 import 'package:hi_bob/features/games/presentation/widgets/game_loading.dart';
 import 'package:hi_bob/features/games/presentation/widgets/word_card.dart';
 
@@ -39,9 +39,7 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
   void _startTimer(){
     _timer = Timer.periodic(Duration(seconds: 1), (t) {
       if (t.isActive && mounted) {
-        setState(() {
           _totalTimeTakenInSeconds = _totalTimeTakenInSeconds + 1;
-        });
       }
     });
   }
@@ -105,12 +103,11 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
         );
       case GameStates.done:
         return GameResults(
-          wordsGotWrong: _state.wordsGotWrongCount,
-          allWords: _state.totalWordsCount,
-          totalTimeTakenInSeconds: _totalTimeTakenInSeconds,
+          gotWrongText: context.translated.wrongAttempts(_state.wordsGotWrongCount),
+          allText: context.translated.totalWords(_state.totalWordsCount),
+          totalTimeLabel:
+          context.translated.timeTaken(Duration(seconds: _totalTimeTakenInSeconds).inMinutes),
           onDone: () {
-            _totalTimeTakenInSeconds = 0;
-            _timer?.cancel();
             context.goHome();
           },
         );
@@ -134,17 +131,35 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
           justClicked: word,
         );
       },
-      clicked: word == _wordAwaitingMatching,
-      matched: isRussian
+      highlightAsClicked: word == _wordAwaitingMatching,
+      highlightAsMatched: isRussian
           ? _state.matchedRussianWords.contains(word)
           : _state.matchedEnglishWords.contains(word),
     );
   }
 
+
+  Future<void> _initializePlay({bool resume = false, bool easy = false,}) async {
+      setState(() {
+        _gameStates = GameStates.loading;
+        _state.disposeStateData();
+        _resetState();
+      });
+      await _state.initialize(
+        shuffle: !easy,
+        resume:resume,
+      );
+      setState(() {
+        _gameStates = GameStates.play;
+      });
+      _startTimer();
+    }
+
+
   void _checkMatchStatus(
-    MatchStateOnClick matchStatus, {
-    required String justClicked,
-  }) {
+      MatchStateOnClick matchStatus, {
+        required String justClicked,
+      }) {
     switch (matchStatus) {
       case MatchStateOnClick.awaitNextClick:
         setState(() {
@@ -159,11 +174,11 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
           _goToNextBatch();
         }
       case MatchStateOnClick.mismatched:
-       setState(() {
-         _wordAwaitingMatching = null;
-       });
-       context.showErrorSnack('Wrong!');
-       context.removeSnack();
+        setState(() {
+          _wordAwaitingMatching = null;
+        });
+        context.showErrorSnack('Wrong!');
+        context.removeSnack();
     }
 
   }
@@ -192,29 +207,13 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
   void dispose() {
     _gameStates = GameStates.init;
     _timer?.cancel();
-    _disposeState();
+    _resetState();
     super.dispose();
   }
-  void _disposeState(){
+  void _resetState(){
     _totalTimeTakenInSeconds = 0;
     _wordAwaitingMatching = null;
   }
-
-  Future<void> _initializePlay({bool resume = false, bool easy = false,}) async {
-      setState(() {
-        _gameStates = GameStates.loading;
-        _state.disposeStateData();
-        _disposeState();
-      });
-      await _state.initialize(
-        shuffle: !easy,
-        resume:resume,
-      );
-      setState(() {
-        _gameStates = GameStates.play;
-      });
-      _startTimer();
-    }
 }
 
 enum GameStates {
