@@ -87,7 +87,7 @@ class LessonCard extends StatelessWidget {
       onTap: onClick,
       child: Container(
         height: 240,
-        width: context.screenWidth * 0.45,
+        width: context.maxAllowedScreenWidth * 0.45,
         margin: const EdgeInsets.only(bottom: 16),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(

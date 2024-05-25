@@ -22,7 +22,7 @@ class MainBtnOutline extends StatelessWidget {
       style: ButtonStyle(
         fixedSize: MaterialStatePropertyAll(
           Size(
-            context.screenWidth,
+            context.maxAllowedScreenWidth,
             height,
           ),
         ),

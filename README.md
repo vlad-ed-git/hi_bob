@@ -4,6 +4,11 @@ Built with Flutter
 
 ## TEST RUN COMMANDS
 
+### Run Web
+```
+flutterN run -d chrome -t ./lib/main_development.dart --web-hostname localhost --web-port 5050
+```
+
 ### Run Development Flavor
 ```
 flutter run -t ./lib/main_development.dart --flavor=development

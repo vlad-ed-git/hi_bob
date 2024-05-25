@@ -27,7 +27,8 @@ extension ContextExt on BuildContext {
 
   Size get screenSize => MediaQuery.of(this).size;
 
-  double get screenWidth => screenSize.width;
+  double get trueScreenWidth => screenSize.width;
+  double get maxAllowedScreenWidth => screenSize.width > tabletWidth ? tabletWidth : screenSize.width;
 
   double get screenHeight => screenSize.height;
 

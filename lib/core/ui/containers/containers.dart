@@ -1,3 +1,6 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hi_bob/core/utils/extensions/context_ext.dart';
 
@@ -13,13 +16,20 @@ class SafeFullScreenContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final content = Container(
+      padding: padding ?? EdgeInsets.zero,
+      width: context.maxAllowedScreenWidth,
+      height: context.screenHeight,
+      child: child,
+    );
     return SafeArea(
-      child: Container(
-        width: context.screenWidth,
+      maintainBottomViewPadding: true,
+      child: kIsWeb ? Container(
+        width: context.trueScreenWidth,
         height: context.screenHeight,
-        padding: padding ?? EdgeInsets.zero,
-        child: child,
-      ),
+        alignment: Alignment.center,
+        child: content,
+        ) : content,
     );
   }
 }
@@ -123,7 +133,7 @@ class WrapHorizontally extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: BoxConstraints(
-        minWidth: widthOrFullScreen ?? context.screenWidth,
+        minWidth: widthOrFullScreen ?? context.maxAllowedScreenWidth,
       ),
       child: Wrap(
         alignment: WrapAlignment.spaceBetween,
