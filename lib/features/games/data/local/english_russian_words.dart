@@ -9,7 +9,7 @@ const int minBatchLength = 25;
 Map<String, List<String>> getEnglishToRussianMatches() {
   final Map<String, List<String>> englishToRussian = {};
   final int totalWords = _englishLowerCase.length;
-  for (int i = 0; i < totalWords; i++) {
+  for (int i = 0; i < 25; i++) {
     final englishWord = _englishLowerCase[i];
     final russianWord = russianWords[i];
     if (englishToRussian.containsKey(englishWord)) {
@@ -25,7 +25,7 @@ Map<String, List<String>> getEnglishToRussianMatches() {
 Map<String, List<String>> getRussianToEnglishMatches() {
   final Map<String, List<String>> russianToEnglish = {};
   final int totalWords = _englishLowerCase.length;
-  for (int i = 0; i < totalWords; i++) {
+  for (int i = 0; i < 25; i++) {
     final englishWord = _englishLowerCase[i];
     final russianWord = russianWords[i];
     if (russianToEnglish.containsKey(russianWord)) {

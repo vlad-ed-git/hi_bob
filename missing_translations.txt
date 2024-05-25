@@ -7,7 +7,15 @@
     "appName",
     "lesson1Title",
     "lesson2Title",
-    "lesson3Title"
+    "lesson3Title",
+    "congrats",
+    "wrongAttempts",
+    "totalWords",
+    "timeTaken",
+    "getStartedTitle",
+    "startEasyMode",
+    "resume",
+    "startNormalMode"
   ],
 
   "zh": [
@@ -18,6 +26,14 @@
     "appName",
     "lesson1Title",
     "lesson2Title",
-    "lesson3Title"
+    "lesson3Title",
+    "congrats",
+    "wrongAttempts",
+    "totalWords",
+    "timeTaken",
+    "getStartedTitle",
+    "startEasyMode",
+    "resume",
+    "startNormalMode"
   ]
 }
