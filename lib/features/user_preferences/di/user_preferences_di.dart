@@ -11,7 +11,7 @@ void init() {
   final GetIt di = GetIt.instance;
 
   di.registerLazySingleton<UserPreferencesLocalSource>(
-    () => UserPreferencesLocalSourceImpl(UserPreferencesSqlDao()),
+    UserPreferencesLocalSourceImpl.new,
   );
   di.registerLazySingleton<UserPreferencesRepository>(
     () => UserPreferencesRepositoryImpl(

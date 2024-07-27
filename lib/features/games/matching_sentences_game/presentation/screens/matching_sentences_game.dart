@@ -80,15 +80,16 @@ class _MatchingSentencesGameScreenState
   Widget _buildBody() {
     switch (_gameStates) {
       case GameStates.init:
-        return GetStarted(
-          onStartNormal: _initializePlay,
-          onStartEasy: () => _initializePlay(
+        return SizedBox.shrink();
+        /** TODO return GetStarted(
+            onStartNormal: _initializePlay,
+            onStartEasy: () => _initializePlay(
             easy: true,
-          ),
-          onResume: () => _initializePlay(
+            ),
+            onResume: () => _initializePlay(
             resume: true,
-          ),
-        );
+            ),
+            );*/
       case GameStates.loading:
         return GameLoading();
       case GameStates.play:

@@ -6,9 +6,9 @@ import 'package:hi_bob/core/ui/containers/containers.dart';
 import 'package:hi_bob/core/ui/text/app_text.dart';
 import 'package:hi_bob/core/utils/extensions/context_ext.dart';
 import 'package:hi_bob/features/games/matching_word_game/presentation/state/match_russian_to_english_state.dart';
+import 'package:hi_bob/features/games/presentation/widgets/game_loading.dart';
 import 'package:hi_bob/features/games/presentation/widgets/game_results.dart';
 import 'package:hi_bob/features/games/presentation/widgets/get_started.dart';
-import 'package:hi_bob/features/games/presentation/widgets/game_loading.dart';
 import 'package:hi_bob/features/games/presentation/widgets/word_card.dart';
 
 class MatchingWordsGameScreen extends StatefulWidget {
@@ -24,6 +24,7 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
   Timer? _timer;
   int _totalTimeTakenInSeconds = 0;
   GameStates _gameStates = GameStates.init;
+
 
   @override
   void initState() {
@@ -71,27 +72,27 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
     switch (_gameStates) {
       case GameStates.init:
         return GetStarted(
-          onStartNormal: _initializePlay,
-          onStartEasy: () => _initializePlay(
-            easy:true,
+          onStartLesson: (int lessonNumber) => _initializePlay(
+              lessonNumber:lessonNumber,
           ),
-          onResume: () => _initializePlay(
-       resume:true,
-    ),);
+          onResume: _initializePlay,
+        );
       case GameStates.play:
         return SafeFullScreenContainer(
           padding: EdgeInsets.all(16),
           SingleChildScrollView(
             physics: const ClampingScrollPhysics(),
             child: TopLeftColumn(
-              _state.currentRussianToShuffledEnglishBatch.entries
+              _state.russianToShuffledEnglish.entries
                   .map(
                     (ruToEng) => SpaceBtnCenterRow([
                       _buildWordCard(
+                        wordTagSuffix: '_${ruToEng.key}',
                         word: ruToEng.key,
                         isRussian: true,
                       ),
                       _buildWordCard(
+                        wordTagSuffix: '_${ruToEng.key}',
                         word: ruToEng.value,
                         isRussian: false,
                       ),
@@ -102,9 +103,10 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
           ),
         );
       case GameStates.done:
+        /// TODO make the wording match the actual data  incorrectTimes vs  correctTimes
         return GameResults(
-          gotWrongText: context.translated.wrongAttempts(_state.wordsGotWrongCount),
-          allText: context.translated.totalWords(_state.totalWordsCount),
+          gotWrongText: context.translated.wrongAttempts(_state.incorrectTimes),
+          allText: context.translated.totalWords(_state.correctTimes),
           totalTimeLabel:
           context.translated.timeTaken(Duration(seconds: _totalTimeTakenInSeconds).inMinutes),
           onDone: () {
@@ -119,13 +121,15 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
   Widget _buildWordCard({
     required String word,
     required bool isRussian,
+    required String wordTagSuffix,
   }) {
+    final tag = _state.getWordTag(word,wordTagSuffix);
     return WordCard(
       word: word,
       onTap: () {
         final matchStatus = isRussian
-            ? _state.onClickedRussianWord(word)
-            : _state.onClickedEnglishWord(word);
+            ? _state.onClickedRussianWord(word, wordTagSuffix)
+            : _state.onClickedEnglishWord(word, wordTagSuffix);
         _checkMatchStatus(
           matchStatus,
           justClicked: word,
@@ -133,21 +137,20 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
       },
       highlightAsClicked: word == _wordAwaitingMatching,
       highlightAsMatched: isRussian
-          ? _state.matchedRussianWords.contains(word)
-          : _state.matchedEnglishWords.contains(word),
+          ? _state.matchedRussianWords.contains(tag)
+          : _state.matchedEnglishWords.contains(tag),
     );
   }
 
 
-  Future<void> _initializePlay({bool resume = false, bool easy = false,}) async {
+  Future<void> _initializePlay({int? lessonNumber }) async {
       setState(() {
         _gameStates = GameStates.loading;
         _state.disposeStateData();
         _resetState();
       });
       await _state.initialize(
-        shuffle: !easy,
-        resume:resume,
+          lessonNumber  : lessonNumber,
       );
       setState(() {
         _gameStates = GameStates.play;
@@ -170,8 +173,8 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
         setState(() {
           _wordAwaitingMatching = null;
         });
-        if (_state.allWordsMatched) {
-          _goToNextBatch();
+        if (_state.allWordsInPageMatched) {
+          _goToNextPage();
         }
       case MatchStateOnClick.mismatched:
         setState(() {
@@ -183,14 +186,14 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
 
   }
 
-  Future<void> _goToNextBatch() async {
+  Future<void> _goToNextPage() async {
     context.showSuccessSnack('Awesome!');
     setState(() {
       _gameStates = GameStates.loading;
     });
     await Future.delayed(Duration(seconds: 1), () {});
     _wordAwaitingMatching = null;
-    await _state.toNextBatch();
+    await _state.toNextPage();
     if (_state.endOfGame) {
       setState(() {
         _gameStates = GameStates.done;

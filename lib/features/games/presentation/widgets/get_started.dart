@@ -5,19 +5,18 @@ import 'package:hi_bob/core/ui/text/app_text.dart';
 import 'package:hi_bob/core/utils/extensions/context_ext.dart';
 
 class GetStarted extends StatelessWidget {
-  final VoidCallback onStartNormal, onStartEasy, onResume;
+  final VoidCallback onResume;
+  final void Function(int number) onStartLesson;
   const GetStarted({
     super.key,
-    required this.onStartNormal,
-    required this.onStartEasy,
-    required this.onResume,
+    required this.onResume, required this.onStartLesson,
   });
 
   @override
   Widget build(BuildContext context) {
     return SafeFullScreenContainer(
       padding: EdgeInsets.all(16),
-      CenterColumn(
+      CenterLeftColumn(
         [
           H5(
             context.translated.getStartedTitle,
@@ -27,36 +26,25 @@ class GetStarted extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          MainBtnOutline(
-            onClick: onStartEasy,
-            child: BtnText(
-              context.translated.startEasyMode,
-              txtAlign: TextAlign.center,
-              color: context.color.primary,
-            ),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          MainBtnOutline(
-            onClick: onStartNormal,
-            borderColor: context.color.secondary,
-            child: BtnText(
-              context.translated.startNormalMode,
-              txtAlign: TextAlign.center,
-              color: context.color.secondary,
-            ),
-          ),
-          const SizedBox(
-            height: 8,
-          ),
-          MainBtnOutline(
-            onClick: onResume,
-            borderColor: context.color.tertiary,
-            child: BtnText(
-              context.translated.resume.toUpperCase(),
-              txtAlign: TextAlign.center,
-              color: context.color.tertiary,
+          Flexible(
+            child: SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
+              child:  Wrap(
+                spacing: 12,
+                runSpacing: 12,
+                children: List.generate(50, (int index) => index  + 1 ).map(
+                        (int number) =>  MainBtnOutline(
+                      onClick: (){
+                        onStartLesson(number);
+                      },
+                      child: BtnText(
+                        context.translated.lessonNumber(number),
+                        txtAlign: TextAlign.center,
+                        color: context.color.primary,
+                      ),
+                    )
+                ).toList(growable: false),
+              ),
             ),
           ),
           const SizedBox(

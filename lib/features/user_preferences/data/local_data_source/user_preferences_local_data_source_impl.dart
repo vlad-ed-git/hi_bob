@@ -9,26 +9,14 @@ import 'package:hi_bob/features/user_preferences/domain/models/user_preferences.
 import 'package:sqflite/sqflite.dart';
 
 class UserPreferencesLocalSourceImpl implements UserPreferencesLocalSource {
-  final SqlDao _sqlDao;
 
-  UserPreferencesLocalSourceImpl(this._sqlDao);
+  UserPreferencesLocalSourceImpl();
 
   StreamController<UserPreferences?>? _changesStreamController;
 
   @override
   Future<void> saveUserPreferences(UserPreferences preferences) async {
     try {
-      final Database db = await _sqlDao.getDb();
-
-      /// clear preferences
-      await db.delete(
-        UserPreferencesEntity.tableName,
-      );
-      await db.insert(
-        UserPreferencesEntity.tableName,
-        UserPreferencesEntity.fromUserPreferences(preferences).toTableRow(),
-        conflictAlgorithm: ConflictAlgorithm.replace,
-      );
       _initListenerStreamIfNull();
       _changesStreamController?.add(preferences);
     } on Exception catch (error, st) {
@@ -43,14 +31,7 @@ class UserPreferencesLocalSourceImpl implements UserPreferencesLocalSource {
   @override
   Future<UserPreferences?> getUserPreferences() async {
     try {
-      final Database db = await _sqlDao.getDb();
-      final List<Map<String, dynamic>> maps = await db.query(
-        UserPreferencesEntity.tableName,
-      );
-      if (maps.isEmpty) {
-        return null;
-      }
-      return UserPreferencesEntity.fromTableRow(maps.first);
+      return null;
     } on Exception catch (error, st) {
       throw UserPreferencesException(
         UserPreferencesErrors.unknownUserPreferencesErr,

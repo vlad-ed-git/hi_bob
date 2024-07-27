@@ -1,42 +1,73 @@
-import 'package:hi_bob/features/games/data/local/english_words.dart';
-import 'package:hi_bob/features/games/data/local/russian_words.dart';
+import 'dart:convert';
 
-final _englishLowerCase = englishWords.map((e) => e.toLowerCase().trim()).toList(
-      growable: false,
-    );
-const int minBatchLength = 25;
+import 'package:flutter/services.dart';
+import 'package:hi_bob/core/utils/k_debug_print.dart';
 
-Map<String, List<String>> getEnglishToRussianMatches() {
-  final Map<String, List<String>> englishToRussian = {};
-  final int totalWords = _englishLowerCase.length;
-  for (int i = 0; i < totalWords; i++) {
-    final englishWord = _englishLowerCase[i];
-    final russianWord = russianWords[i];
-    if (englishToRussian.containsKey(englishWord)) {
-      englishToRussian[englishWord]!.add(
-        russianWord,
-      );
-    } else {
-      englishToRussian[englishWord] = [russianWord];
-    }
+Future<List<String>> _getRussianWordsInLesson(int lessonNumber) async {
+  try {
+    final String jsonString = await rootBundle
+        .loadString('assets/data/russian_words_by_lesson.json');
+    final data = jsonDecode(jsonString) as Map;
+    final List<dynamic> lessons = data["data"] as List<dynamic>;
+    return (lessons[lessonNumber - 1] as List<dynamic>)
+    .map((e) => e.toString()).toList();
+  } on Exception catch (error, st) {
+    kDebugPrint('==================| $error, $st');
+    return [];
   }
-  return englishToRussian;
 }
-Map<String, List<String>> getRussianToEnglishMatches() {
-  final Map<String, List<String>> russianToEnglish = {};
-  final int totalWords = _englishLowerCase.length;
-  for (int i = 0; i < totalWords; i++) {
-    final englishWord = _englishLowerCase[i];
-    final russianWord = russianWords[i];
-    if (russianToEnglish.containsKey(russianWord)) {
-      russianToEnglish[russianWord]!.add(
-       englishWord,
-      );
-    } else {
-      russianToEnglish[russianWord] = [englishWord];
-    }
+
+Future<List<String>> _getAllRussianWords() async {
+  try {
+    final String jsonString = await rootBundle
+        .loadString('assets/data/russian_ordered.json');
+    final data = jsonDecode(jsonString) as Map;
+    final List<String> words = (data["data"] as List<dynamic>).map(
+        (entry) => entry.toString()
+    ).toList();
+    return words;
+  } on Exception catch (error, st) {
+    kDebugPrint('==================| $error, $st');
+    return [];
   }
-  return russianToEnglish;
 }
+
+Future<List<String>> _getAllEnglishWords() async {
+  try {
+    final String jsonString = await rootBundle
+        .loadString('assets/data/english_ordered.json');
+    final data = jsonDecode(jsonString) as Map;
+    final List<String> words = (data["data"] as List<dynamic>).map(
+            (entry) => entry.toString()
+    ).toList();
+    return words;
+  } on Exception catch (error, st) {
+    kDebugPrint('==================| $error, $st');
+    return [];
+  }
+}
+
+Future<Map<String, String>> getLessonWordsRussianToEnglish(int lessonNumber)  async {
+  try {
+    final allRussianWords = await _getAllRussianWords();
+    final allEnglishWords = await _getAllEnglishWords();
+    final Map<String, String> russianToEnglish = {};
+    for(int i = 0; i < allRussianWords.length; i++){
+      russianToEnglish[allRussianWords[i]] = allEnglishWords[i];
+    }
+    final russianWordsInLesson = await _getRussianWordsInLesson(lessonNumber);
+    final Map<String, String> russianToEnglishInLesson = {};
+    for(String word in russianWordsInLesson){
+      if(russianToEnglish.containsKey(word)) {
+        russianToEnglishInLesson[word] = russianToEnglish[word]!;
+      }
+    }
+    return russianToEnglishInLesson;
+  } on Exception catch (error, st) {
+    kDebugPrint('==================| $error, $st');
+    return {};
+  }
+}
+
 
 

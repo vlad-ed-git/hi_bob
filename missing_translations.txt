@@ -16,7 +16,8 @@
     "startEasyMode",
     "resume",
     "startNormalMode",
-    "lessonNumberSentenceNumber"
+    "lessonNumberSentenceNumber",
+    "lessonNumber"
   ],
 
   "zh": [
@@ -36,6 +37,7 @@
     "startEasyMode",
     "resume",
     "startNormalMode",
-    "lessonNumberSentenceNumber"
+    "lessonNumberSentenceNumber",
+    "lessonNumber"
   ]
 }

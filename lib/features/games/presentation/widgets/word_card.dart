@@ -18,7 +18,7 @@ class WordCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: highlightAsClicked || highlightAsMatched ? null : onTap,
+      onTap: (highlightAsClicked || highlightAsMatched) ? null : onTap,
       radius: 16,
       borderRadius: BorderRadius.circular(16),
       child: Container(
@@ -26,7 +26,7 @@ class WordCard extends StatelessWidget {
           color: context.color.surface,
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
-            width: highlightAsClicked ? 3 : 1,
+            width: (highlightAsClicked || highlightAsMatched) ? 3 : 1,
             color: highlightAsError ? context.color.error :
               highlightAsMatched
                 ? context.color.primary

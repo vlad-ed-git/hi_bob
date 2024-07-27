@@ -15,6 +15,6 @@
  "startEasyMode" : "Start Easy Mode",
  "resume" : "Resume",
  "startNormalMode"  : "Start Normal Mode",
- "lessonNumberSentenceNumber" : "Lesson {lessonNumber} - {sentenceNumber}"
-
+ "lessonNumberSentenceNumber" : "Lesson {lessonNumber} - {sentenceNumber}",
+ "lessonNumber": "Lesson {lessonNumber}"
 }

@@ -1,12 +1,12 @@
-import 'package:basics/basics.dart';
 import 'package:hi_bob/features/games/data/local/english_russian_words.dart';
 import 'package:hi_bob/features/services/local_storage.dart';
 
-const String _gamePageStorageKey = 'lastMatchingWordsPageKey';
-const String _lastMatchingWordsIsEasyModeKey = 'lastMatchingWordsIsEasyModeKey';
-
+const String _lessonNumberStorageKey = 'lastMatchingWordsLessonKey';
+const String _pageNumberStorageKey = 'lastMatchingWordsPageInLessonKey';
+const int maxWordsPerPage = 10;
 class RussianEnglishStateController {
   static RussianEnglishStateController? _instance;
+
   factory RussianEnglishStateController() {
     _instance ??= RussianEnglishStateController._internal();
     LocalStorageServices();
@@ -16,185 +16,191 @@ class RussianEnglishStateController {
   RussianEnglishStateController._internal();
 
   static RussianEnglishStateController get instance => _instance!;
+
   static LocalStorageServices get _localStorage =>
       LocalStorageServices.instance;
 
-  final _allRussianToEnglish = getRussianToEnglishMatches();
-  int _batchNumber = 1;
+  int _lessonNumber = 1;
+  int _pageNumber = 1;
   bool endOfGame = false;
-  bool _shuffle = true;
-  final int _entriesPerPage = 7;
 
-  final Map<String, List<String>> _currentRussianToEnglishBatch = {};
-  final Map<String, String> currentRussianToShuffledEnglishBatch = {};
   Future<void> initialize({
-    required bool shuffle,
-    required bool resume,
+    int? lessonNumber,
   }) async {
+    final bool resume = lessonNumber == null;
     if (resume) {
-      _batchNumber = await _localStorage.getInt(_gamePageStorageKey) ?? 1;
-      final easyMode = await _localStorage.getBool(_lastMatchingWordsIsEasyModeKey);
-      _shuffle = !easyMode;
+      _lessonNumber = await _localStorage.getInt(_lessonNumberStorageKey) ?? 1;
+      _pageNumber = await _localStorage.getInt(_pageNumberStorageKey) ?? 1;
     }
     if (!resume) {
-      _shuffle = shuffle;
+      _lessonNumber = lessonNumber;
+      _pageNumber = 1;
     }
     await _localStorage.setInt(
-      _gamePageStorageKey,
-      _batchNumber,
+      _lessonNumberStorageKey,
+      _lessonNumber,
     );
-    await _localStorage.setBool(
-      _lastMatchingWordsIsEasyModeKey,
-      value: !_shuffle,
+    await _localStorage.setInt(
+      _pageNumberStorageKey,
+      _pageNumber,
     );
-    _loadBatchWords();
+    await _loadLessonWords();
   }
 
-  void _loadBatchWords() {
-    _setCurrentWordsBatch();
-    _setCurrentRussianToShuffledEnglishBatch();
-  }
+  Map<int, Map<String, String>> _correctRussianToEnglishWordsPerPage = {};
+  Map<String, String> _correctWordsInCurrentPage = {};
 
-  void _setCurrentWordsBatch() {
-    _currentRussianToEnglishBatch.clear();
-    int startIndex = (_batchNumber - 1) * _entriesPerPage;
-    if (startIndex < 0) {
-      startIndex = 0;
+  Future<void> _loadLessonWords() async {
+    _correctRussianToEnglishWordsPerPage.clear();
+    final correctRussianToEnglishWords = await getLessonWordsRussianToEnglish(
+        _lessonNumber,);
+    int page = 1;
+    Map<String, String> pageWords = {};
+    for (var entry in correctRussianToEnglishWords.entries) {
+      pageWords[entry.key] = entry.value;
+      if (pageWords.length == maxWordsPerPage) {
+        _correctRussianToEnglishWordsPerPage[page]
+        = {}..addAll(pageWords);
+        pageWords.clear();
+        page++;
+      }
     }
-    int endIndex = startIndex + _entriesPerPage;
+    _loadCurrentPageWords();
+  }
 
-    List<MapEntry<String, List<String>>> entries =
-        _allRussianToEnglish.entries.toList();
-
-    if (startIndex >= entries.length) {
-      endOfGame = true;
+  void _setRussianToShuffledEnglish()  {
+    russianToShuffledEnglish.clear();
+    final russian = _correctWordsInCurrentPage.keys.toList();
+    final english = _correctWordsInCurrentPage.values.toList();
+   //TODO english.shuffle();
+    final Map<String, String> words = {};
+    int i = 0;
+    for(var r in russian){
+      words[r] = english[i];
+      i++;
+    }
+    russianToShuffledEnglish.addAll(words);
+  }
+  Map<String, String>  russianToShuffledEnglish  = {};
+  void _loadCurrentPageWords(){
+    print('\n|**********|\n page : $_pageNumber in ${_correctRussianToEnglishWordsPerPage.keys.toList()} \n|**********|\n');
+    endOfGame = !_correctRussianToEnglishWordsPerPage.containsKey(_pageNumber);
+    if(endOfGame){
       return;
     }
-
-    if (endIndex > entries.length) {
-      endIndex = entries.length;
-    }
-    entries.sublist(startIndex, endIndex).forEach((entry) {
-      _currentRussianToEnglishBatch[entry.key] = entry.value;
-    });
+    _correctWordsInCurrentPage.clear();
+    _correctWordsInCurrentPage.addAll(
+      _correctRussianToEnglishWordsPerPage[_pageNumber]!,
+    );
+    _setRussianToShuffledEnglish();
   }
 
-  List<String> get _engWordsInCurrentBatch =>
-      _currentRussianToEnglishBatch.values
-          .map(
-            (russianToEnglish) => russianToEnglish.getRandom() ?? '',
-          )
-          .toList();
-  List<String> get _russianWordsInCurrentBatch =>
-      _currentRussianToEnglishBatch.keys.toList();
 
-  void _setCurrentRussianToShuffledEnglishBatch() {
-    currentRussianToShuffledEnglishBatch.clear();
-    final shuffledEnglishWords = <String>[];
-    shuffledEnglishWords.addAll(_engWordsInCurrentBatch);
-    if (_shuffle) shuffledEnglishWords.shuffle();
-    for (int i = 0; i < _engWordsInCurrentBatch.length; i++) {
-      final eng = shuffledEnglishWords[i];
-      final rus = _russianWordsInCurrentBatch[i];
-      currentRussianToShuffledEnglishBatch[rus] = eng;
-    }
-  }
+  bool allWordsInPageMatched = false;
+  String? _lastClickedRussianWord;
+  String? _lastClickedEnglishWord;
+  int incorrectTimes = 0;
+  int correctTimes = 0;
+  Set<String> _matchedRussianWords = Set();
+  Set<String> _matchedEnglishWords = Set();
 
-  String? _clickedRussianWord;
-  String? _clickedEnglishWord;
+  Set<String> get matchedRussianWords => _matchedRussianWords;
+  Set<String> get matchedEnglishWords => _matchedEnglishWords;
 
-  MatchStateOnClick onClickedRussianWord(String clickedRussianWord) {
-    _clickedRussianWord = clickedRussianWord;
-    return _checkIfMatchedCorrectly();
-  }
-
-  MatchStateOnClick onClickedEnglishWord(String clickedEnglishWord) {
-    _clickedEnglishWord = clickedEnglishWord;
-    return _checkIfMatchedCorrectly();
-  }
-
-  MatchStateOnClick _checkIfMatchedCorrectly() {
-    bool checkIfMatching =
-        _clickedEnglishWord != null && _clickedRussianWord != null;
-    if (!checkIfMatching) {
+  int _correctTimesPerPage = 0;
+  MatchStateOnClick onClickedRussianWord(String word, String wordTagSuffix) {
+    final lastEnglish = _lastClickedEnglishWord;
+    if(lastEnglish == null) {
+      _lastClickedRussianWord = word;
       return MatchStateOnClick.awaitNextClick;
     }
 
-    final bool? match = _currentRussianToEnglishBatch[_clickedRussianWord!]
-        ?.contains(_clickedEnglishWord);
-    final bool matched = match == true;
-    _setMatchedWords(matched: matched);
-    _setMisMatchedWords(matched: matched);
-    _resetAfterMatchAttempt(matched: matched);
-    return matched ? MatchStateOnClick.matched : MatchStateOnClick.mismatched;
-  }
 
-  final Set<String> matchedRussianWords = Set();
-  final Set<String> matchedEnglishWords = Set();
-  void _resetAfterMatchAttempt({required bool matched}) {
-    _clickedRussianWord = null;
-    _clickedEnglishWord = null;
-  }
-
-  void _setMatchedWords({required bool matched}) {
-    if (!matched) {
-      return;
+    final correctEnglish = _correctWordsInCurrentPage[word];
+    if(correctEnglish == lastEnglish) {
+      _lastClickedRussianWord = null;
+      _lastClickedEnglishWord = null;
+      correctTimes++;
+      _correctTimesPerPage++;
+      allWordsInPageMatched =
+          _correctTimesPerPage == _correctWordsInCurrentPage.length;
+      _addToMatchedRussian(getWordTag(word, wordTagSuffix));
+      _addToMatchedEnglish(getWordTag(lastEnglish, wordTagSuffix));
+      return MatchStateOnClick.matched;
+    }else{
+      incorrectTimes++;
+      return MatchStateOnClick.mismatched;
     }
-    matchedRussianWords.add(_clickedRussianWord!);
-    matchedEnglishWords.add(_clickedEnglishWord!);
   }
 
-  /// note: many russian words can match onto 1 english word
-  /// so there are duplicated english words
-  bool get allWordsMatched {
-    return matchedEnglishWords.length ==
-        currentRussianToShuffledEnglishBatch.values.toSet().length;
-  }
+  String getWordTag(String word, String tag) => '$word$tag';
 
-  final Set<String> _wordsGotWrong = Set();
-  void _setMisMatchedWords({required bool matched}) {
-    if (matched) {
-      return;
+  MatchStateOnClick onClickedEnglishWord(String word, String wordTagSuffix) {
+    final lastRussian = _lastClickedRussianWord;
+    if (lastRussian == null) {
+      _lastClickedEnglishWord = word;
+      return MatchStateOnClick.awaitNextClick;
     }
-    _wordsGotWrong.add(_clickedRussianWord!);
-    _wordsGotWrong.add(_clickedEnglishWord!);
+
+
+    final correctEnglish = _correctWordsInCurrentPage[lastRussian];
+    if (correctEnglish == word) {
+      _lastClickedRussianWord = null;
+      _lastClickedEnglishWord = null;
+      correctTimes++;
+      _correctTimesPerPage++;
+      allWordsInPageMatched =
+          _correctTimesPerPage == _correctWordsInCurrentPage.length;
+      _addToMatchedEnglish(getWordTag(word, wordTagSuffix));
+      _addToMatchedRussian(getWordTag(lastRussian, wordTagSuffix));
+      return MatchStateOnClick.matched;
+    } else {
+      incorrectTimes++;
+      return MatchStateOnClick.mismatched;
+    }
+  }
+
+
+
+  Future<void> toNextPage() async{
+    _pageNumber++;
+    _correctTimesPerPage = 0;
+    await _localStorage.setInt(
+      _pageNumberStorageKey,
+      _pageNumber,
+    );
+    _loadCurrentPageWords();
   }
 
   void disposeStateData() {
-    matchedEnglishWords.clear();
-    matchedRussianWords.clear();
-    currentRussianToShuffledEnglishBatch.clear();
-    _currentRussianToEnglishBatch.clear();
+    _correctTimesPerPage = 0;
+    _lessonNumber = 1;
+    _pageNumber = 1;
+    endOfGame = false;
+    _lastClickedRussianWord = null;
+    _lastClickedEnglishWord = null;
+    incorrectTimes = 0;
+    correctTimes = 0;
+    allWordsInPageMatched = false;
   }
 
-  Future<void> toNextBatch() async {
-    _batchNumber++;
-    disposeStateData();
-    _loadBatchWords();
-    if (endOfGame) {
-      await _localStorage.setInt(
-        _gamePageStorageKey,
-        1,
-      );
-      await _localStorage.setBool(
-        _lastMatchingWordsIsEasyModeKey,
-        value: false,
-      );
-      return;
-    }
-    // not end of game
-    await _localStorage.setInt(
-      _gamePageStorageKey,
-      _batchNumber,
-    );
+  void _addToMatchedRussian(String wordTag) {
+    final Set<String> tmp = Set();
+    tmp.addAll(_matchedRussianWords);
+    tmp.add(wordTag);
+    _matchedRussianWords = tmp;
   }
 
-  int get wordsGotWrongCount => _wordsGotWrong.length;
-  int get totalWordsCount => _allRussianToEnglish.length;
+  void _addToMatchedEnglish(String wordTag) {
+    final Set<String> tmp = Set();
+    tmp.addAll(_matchedEnglishWords);
+    tmp.add(wordTag);
+    _matchedEnglishWords = tmp;
+  }
 }
 
-enum MatchStateOnClick {
+enum MatchStateOnClick{
   awaitNextClick,
   matched,
-  mismatched;
+  mismatched,
 }

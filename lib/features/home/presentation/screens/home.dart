@@ -37,63 +37,9 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    final HomeTabs selectedPage =
-    HomeTabs.values[widget.goRouterHomePageNavShell.currentIndex];
     return Scaffold(
       extendBody: true,
       body: widget.goRouterHomePageNavShell,
-      bottomNavigationBar: Material(
-        color: context.color.surface,
-        elevation: 8,
-        child: Container(
-          height: 98,
-          child: TabBar(
-            controller: _tabController,
-            indicator: TopIndicator(
-              color: context.color.primary,
-            ),
-            onTap: _navigateToTab,
-            padding: EdgeInsets.only(
-              bottom: 34,
-            ),
-            dividerHeight: 0,
-            splashBorderRadius: BorderRadius.zero,
-            splashFactory: NoSplash.splashFactory,
-            overlayColor: WidgetStateProperty.resolveWith<Color?>(
-                    (Set<WidgetState> states) {
-                  return states.contains(MaterialState.focused)
-                      ? null
-                      : Colors.transparent;
-                }),
-            tabs: HomeTabs.values
-                .map(
-                  (e) => Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  selectedPage == e
-                      ? e.selectedIcon(context)
-                      : e.unselectedIcon(context),
-                  HintText(
-                    e.label(context),
-                    color: selectedPage == e
-                        ? context.color.primary
-                        : context.color.onSurface,
-                  ),
-                ],
-              ),
-            )
-                .toList(growable: false),
-          ),
-        ),
-      ),
-    );
-  }
-
-  void _navigateToTab(int selectedTabIndex) {
-    widget.goRouterHomePageNavShell.goBranch(
-      selectedTabIndex,
-      initialLocation:
-      selectedTabIndex == widget.goRouterHomePageNavShell.currentIndex,
     );
   }
 }
