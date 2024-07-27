@@ -6,10 +6,7 @@ import 'package:hi_bob/features/services/local_storage.dart';
 import 'package:pinput/pinput.dart';
 
 String _lastLessonNumberKey = 'lastRussianEnglishSentencesLessonNumberKey';
-String _lastSentenceNumberInLessonKey =
-    'lastRussianEnglishSentenceNumberInLessonKey';
-String _englishToRussianSentencesEasyModeKey =
-    'englishToRussianSentencesEasyModeKey';
+String _lastSentenceNumberInLessonKey = 'lastRussianEnglishSentenceNumberInLessonKey';
 
 class RussianEnglishSentencesStateController {
   static RussianEnglishSentencesStateController? _instance;
@@ -26,37 +23,26 @@ class RussianEnglishSentencesStateController {
   static LocalStorageServices get _localStorage =>
       LocalStorageServices.instance;
 
-  Map<int, Map<int, EnglishRussianSentence>> _lessonToSentencesMap = {};
-  Future<void> _loadAllSentences({int? limit}) async {
-    _lessonToSentencesMap =   await getLessonToSentencesMap(
-        limit:limit,
-    );
-
-
-  }
-
-  int _lessonNumber = 0;
+  int _lessonNumber = 1;
   int _sentenceNumber = 0;
 
+  Map<int, Map<int, EnglishRussianSentence>> _lessonToSentencesMap = {};
+  Future<void> _loadSentencesForLesson() async {
+    _lessonToSentencesMap =   await getLessonToSentencesMap(
+       lessonNumber: _lessonNumber,
+    );
+  }
 
-  bool _shuffleEnglishWords = true;
   Future<void> initialize({
-    required bool easyMode,
-    required bool resume,
+    int? lessonNumber,
   }) async {
-
-    /// determine how many lessons to load
-    bool isEasyMode = easyMode;
+    bool resume = lessonNumber == null;
     if (resume) {
       _lessonNumber = await _localStorage.getInt(_lastLessonNumberKey) ?? 0;
       _sentenceNumber =
           await _localStorage.getInt(_lastSentenceNumberInLessonKey) ?? 0;
-      isEasyMode =
-      await _localStorage.getBool(_englishToRussianSentencesEasyModeKey);
-
     }
-    _shuffleEnglishWords = !isEasyMode;
-    await _loadAllSentences(limit:isEasyMode ? 1 : null);
+    await _loadSentencesForLesson();
 
     /// save settings
     await _cacheGame();
@@ -67,10 +53,6 @@ class RussianEnglishSentencesStateController {
   Future<void> _cacheGame() async{
     await _localStorage.setInt(_lastLessonNumberKey, _lessonNumber);
     await _localStorage.setInt(_lastSentenceNumberInLessonKey, _sentenceNumber);
-    await _localStorage.setBool(
-      _englishToRussianSentencesEasyModeKey,
-      value: !_shuffleEnglishWords,
-    );
   }
 
   void _loadLessonSentences() {
@@ -83,10 +65,7 @@ class RussianEnglishSentencesStateController {
   EnglishRussianSentence? _currentSentence;
   String get russianSentence => _currentSentence?.russian ?? '-';
   List<String> get englishWordsToMatch {
-    if(_shuffleEnglishWords) {
       return _currentSentence?.shuffledEnglishWords ?? [];
-    }
-    return _currentSentence?.englishWords ?? [];
   }
 
   bool get _isEndOfGame => _lessonNumber >= _lessonToSentencesMap.length;

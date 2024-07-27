@@ -80,16 +80,12 @@ class _MatchingSentencesGameScreenState
   Widget _buildBody() {
     switch (_gameStates) {
       case GameStates.init:
-        return SizedBox.shrink();
-        /** TODO return GetStarted(
-            onStartNormal: _initializePlay,
-            onStartEasy: () => _initializePlay(
-            easy: true,
-            ),
-            onResume: () => _initializePlay(
-            resume: true,
-            ),
-            );*/
+        return GetStarted(
+            onResume: _initializePlay,
+            onStartLesson: (int number) {
+              _initializePlay(lessonNumber : number);
+            },
+            );
       case GameStates.loading:
         return GameLoading();
       case GameStates.play:
@@ -261,8 +257,7 @@ class _MatchingSentencesGameScreenState
   }
 
   Future<void> _initializePlay({
-    bool resume = false,
-    bool easy = false,
+     int? lessonNumber,
   }) async {
     setState(() {
       _gameStates = GameStates.loading;
@@ -270,8 +265,7 @@ class _MatchingSentencesGameScreenState
       _resetState();
     });
     await _state.initialize(
-      easyMode: easy,
-      resume: resume,
+        lessonNumber:lessonNumber,
     );
     setState(() {
       _gameStates = GameStates.play;
