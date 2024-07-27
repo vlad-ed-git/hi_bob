@@ -80,25 +80,28 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
       case GameStates.play:
         return SafeFullScreenContainer(
           padding: EdgeInsets.all(16),
-          SingleChildScrollView(
-            physics: const ClampingScrollPhysics(),
-            child: TopLeftColumn(
-              _state.russianToShuffledEnglish.entries
-                  .map(
-                    (ruToEng) => SpaceBtnCenterRow([
-                      _buildWordCard(
-                        wordTagSuffix: '_${ruToEng.key}',
-                        word: ruToEng.key,
-                        isRussian: true,
-                      ),
-                      _buildWordCard(
-                        wordTagSuffix: '_${ruToEng.key}',
-                        word: ruToEng.value,
-                        isRussian: false,
-                      ),
-                    ]),
-                  )
-                  .toList(),
+          ScrollConfiguration(
+            behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            child: SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
+              child: TopLeftColumn(
+                _state.russianToShuffledEnglish.entries
+                    .map(
+                      (ruToEng) => SpaceBtnCenterRow([
+                        _buildWordCard(
+                          wordTagSuffix: '_${ruToEng.key}',
+                          word: ruToEng.key,
+                          isRussian: true,
+                        ),
+                        _buildWordCard(
+                          wordTagSuffix: '_${ruToEng.key}',
+                          word: ruToEng.value,
+                          isRussian: false,
+                        ),
+                      ]),
+                    )
+                    .toList(),
+              ),
             ),
           ),
         );

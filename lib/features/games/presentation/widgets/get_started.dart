@@ -27,23 +27,26 @@ class GetStarted extends StatelessWidget {
             height: 16,
           ),
           Flexible(
-            child: SingleChildScrollView(
-              physics: const ClampingScrollPhysics(),
-              child:  Wrap(
-                spacing: 12,
-                runSpacing: 12,
-                children: List.generate(50, (int index) => index  + 1 ).map(
-                        (int number) =>  MainBtnOutline(
-                      onClick: (){
-                        onStartLesson(number);
-                      },
-                      child: BtnText(
-                        context.translated.lessonNumber(number),
-                        txtAlign: TextAlign.center,
-                        color: context.color.primary,
-                      ),
-                    )
-                ).toList(growable: false),
+            child:  ScrollConfiguration(
+              behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+              child: SingleChildScrollView(
+                physics: const ClampingScrollPhysics(),
+                child:  Wrap(
+                  spacing: 12,
+                  runSpacing: 12,
+                  children: List.generate(50, (int index) => index  + 1 ).map(
+                          (int number) =>  MainBtnOutline(
+                        onClick: (){
+                          onStartLesson(number);
+                        },
+                        child: BtnText(
+                          context.translated.lessonNumber(number),
+                          txtAlign: TextAlign.center,
+                          color: context.color.primary,
+                        ),
+                      )
+                  ).toList(growable: false),
+                ),
               ),
             ),
           ),

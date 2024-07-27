@@ -72,7 +72,7 @@ class RussianEnglishStateController {
     russianToShuffledEnglish.clear();
     final russian = _correctWordsInCurrentPage.keys.toList();
     final english = _correctWordsInCurrentPage.values.toList();
-   //TODO english.shuffle();
+     english.shuffle();
     final Map<String, String> words = {};
     int i = 0;
     for(var r in russian){

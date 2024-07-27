@@ -16,7 +16,6 @@
     "startEasyMode",
     "resume",
     "startNormalMode",
-    "lessonNumberSentenceNumber",
     "lessonNumber"
   ],
 
@@ -37,7 +36,6 @@
     "startEasyMode",
     "resume",
     "startNormalMode",
-    "lessonNumberSentenceNumber",
     "lessonNumber"
   ]
 }

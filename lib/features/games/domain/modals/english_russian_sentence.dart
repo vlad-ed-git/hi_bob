@@ -25,13 +25,6 @@ class EnglishRussianSentence extends Equatable {
     return english.split(' ').toList(growable: false);
   }
 
-  List<String> get shuffledRussianWords {
-    final List<String> shuffledRussianWords = [];
-    shuffledRussianWords.addAll(russianWords);
-    shuffledRussianWords.shuffle();
-    return shuffledRussianWords;
-  }
-
   List<String> get shuffledEnglishWords {
     final List<String> shuffledEnglishWords = [];
     shuffledEnglishWords.addAll(englishWords);

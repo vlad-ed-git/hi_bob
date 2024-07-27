@@ -29,17 +29,20 @@ class LandingTabScreen extends StatelessWidget {
               height: 100,
             ),
             Flexible(
-              child: SingleChildScrollView(
-                physics: const ClampingScrollPhysics(),
-                child: WrapHorizontally(
-                  Lessons.values
-                      .map(
-                        (lesson) => LessonCard(
-                          lessonTitle: lesson.label(context),
-                          onClick: () => _onLessonClicked(context, lesson),
-                        ),
-                      )
-                      .toList(),
+              child:  ScrollConfiguration(
+                behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+                child: SingleChildScrollView(
+                  physics: const ClampingScrollPhysics(),
+                  child: WrapHorizontally(
+                    Lessons.values
+                        .map(
+                          (lesson) => LessonCard(
+                            lessonTitle: lesson.label(context),
+                            onClick: () => _onLessonClicked(context, lesson),
+                          ),
+                        )
+                        .toList(),
+                  ),
                 ),
               ),
             ),

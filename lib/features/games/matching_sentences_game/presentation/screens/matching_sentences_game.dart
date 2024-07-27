@@ -47,12 +47,7 @@ class _MatchingSentencesGameScreenState
     });
   }
 
-  String get _progressLabel {
-    return context.translated.lessonNumberSentenceNumber(
-      _state.currentLessonNumberForDisplay,
-      _state.currentSentenceNumberForDisplay,
-    );
-  }
+  String get _progressLabel => _state.currentSentenceNumberForDisplay;
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +126,7 @@ class _MatchingSentencesGameScreenState
                       (word) => WordCard(
                         word: word,
                         onTap: () {
-                          _state.onClickWordForCurrentSentence(word);
+                          _state.clickedWordsForCurrentSentence.add(word);
                           setState(() {}); // refresh to show clicked words
 
                           final SentenceMatchingResult result =
@@ -158,7 +153,7 @@ class _MatchingSentencesGameScreenState
             if(_showRetryCurrentSentence)
             IconButton(
               onPressed: () {
-                _state.onRetrySentence();
+                _state.clickedWordsForCurrentSentence.clear();
                 setState(() {
                   _showRetryCurrentSentence = false;
                 }); // refresh
@@ -189,38 +184,23 @@ class _MatchingSentencesGameScreenState
 
   Future<void> _onSuccessfullyCompletedSentence() async {
     setState(() {
+      _gameStates = GameStates.loading;
       _showSuccess = true;
     });
     context.showSuccessSnack('Awesome!');
     await Future.delayed(Duration(seconds: 1), () {});
-    await _state.goToNextSentence();
-    if (_state.reachedEndOfGame) {
-      setState(() {
-        _gameStates = GameStates.done;
-        _showSuccess = false;
-      });
-      return;
-    }
+    setState(() {
+      _showSuccess = false;
+    });
+    await _state.moveToNextSentence();
     if (_state.reachedEndOfLesson) {
       setState(() {
-        _gameStates = GameStates.loading;
-        _showSuccess = false;
-      });
-      await _state.goToNextLesson();
-      if (_state.reachedEndOfGame) {
-        _timer?.cancel();
-        setState(() {
-          _gameStates = GameStates.done;
-        });
-        return;
-      }
-      setState(() {
-        _gameStates = GameStates.play;
+        _gameStates = GameStates.done;
       });
       return;
     }
     setState(() {
-      _showSuccess = false;
+      _gameStates = GameStates.play;
     }); // refresh
   }
 
