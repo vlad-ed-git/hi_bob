@@ -1,4 +1,4 @@
-import 'package:audioplayers/audioplayers.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:hi_bob/core/services/audio/domain/audio_service.dart';
 
 class MAudioServiceImpl implements MAudioService {
@@ -14,11 +14,13 @@ class MAudioServiceImpl implements MAudioService {
   @override
   Future<void> prepareAudio(String audioName) async {
     try {
-      if (_audioPlayer == null) await init();
-      await _audioPlayer?.setSource(
-        UrlSource(_getAudioUrl(audioName.trim())),
+      if (_audioPlayer == null) {
+        await init();
+      }
+      await _audioPlayer?.setUrl(
+        _getAudioUrl(audioName.trim()),
       );
-    }catch (e) {
+    } catch (e) {
       print('\n|*****************|\n'
           'prepareAudio(String $audioName) got error $e '
           '\n|*****************|\n');
@@ -26,10 +28,10 @@ class MAudioServiceImpl implements MAudioService {
   }
 
   @override
-  Future<void> playAudio() async {
-    try{
-    await _audioPlayer?.resume();
-    }catch (e) {
+  Future<void> playPreparedAudio() async {
+    try {
+      await _audioPlayer?.play();
+    } catch (e) {
       print('\n|*****************|\n'
           'playAudio() got error $e '
           '\n|*****************|\n');
@@ -38,9 +40,9 @@ class MAudioServiceImpl implements MAudioService {
 
   @override
   Future<void> stopPlaying() async {
-    try{
-    await _audioPlayer?.stop();
-    }catch (e) {
+    try {
+      await _audioPlayer?.stop();
+    } catch (e) {
       print('\n|*****************|\n'
           'stopPlaying() got error $e '
           '\n|*****************|\n');
@@ -49,11 +51,30 @@ class MAudioServiceImpl implements MAudioService {
 
   @override
   Future<void> dispose() async {
-    try{
-    await _audioPlayer?.dispose();
-    }catch (e) {
+    try {
+      await _audioPlayer?.dispose();
+    } catch (e) {
       print('\n|*****************|\n'
           'dispose() got error $e '
+          '\n|*****************|\n');
+    }
+  }
+
+  @override
+  Future<void> playAndRelease(String audioName) async {
+    try {
+      if(_audioPlayer == null){
+        await init();
+      }
+      await _audioPlayer?.setUrl(
+        _getAudioUrl(audioName.trim()),
+      );
+      await _audioPlayer?.play();
+      await Future<void>.delayed(Duration(seconds: 2));
+      await _audioPlayer?.stop();
+    } catch (e) {
+      print('\n|*****************|\n'
+          'prepareAudio(String $audioName) got error $e '
           '\n|*****************|\n');
     }
   }

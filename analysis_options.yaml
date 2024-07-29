@@ -30,9 +30,6 @@ linter:
     # Avoid using boolean literals in conditional expressions.
     - avoid_bool_literals_in_conditional_expressions
 
-    # Avoid catching Errors without on clauses.
-    - avoid_catches_without_on_clauses
-
     # Avoid catching errors, prefer catching exceptions.
     - avoid_catching_errors
 

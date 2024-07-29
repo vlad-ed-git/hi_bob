@@ -188,7 +188,7 @@ class _MatchingSentencesGameScreenState
 
   Future<void> _onSuccessfullyCompletedSentence() async {
     context.showSuccessSnack('Awesome!');
-    await _audioService?.playAudio();
+    await _audioService?.playPreparedAudio();
     await Future.delayed(Duration(seconds: 3), (){});
     setState(() {
       _gameStates = GameStates.loading;

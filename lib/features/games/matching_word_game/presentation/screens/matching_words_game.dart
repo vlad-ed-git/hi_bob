@@ -129,6 +129,7 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
     final tag = _state.getWordTag(word,wordTagSuffix);
     return WordCard(
       word: word,
+      playAudioOnClick: isRussian,
       onTap: () {
         final matchStatus = isRussian
             ? _state.onClickedRussianWord(word, wordTagSuffix)

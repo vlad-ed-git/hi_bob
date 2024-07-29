@@ -83,7 +83,6 @@ class RussianEnglishStateController {
   }
   Map<String, String>  russianToShuffledEnglish  = {};
   void _loadCurrentPageWords(){
-    print('\n|**********|\n page : $_pageNumber in ${_correctRussianToEnglishWordsPerPage.keys.toList()} \n|**********|\n');
     endOfGame = !_correctRussianToEnglishWordsPerPage.containsKey(_pageNumber);
     if(endOfGame){
       return;
