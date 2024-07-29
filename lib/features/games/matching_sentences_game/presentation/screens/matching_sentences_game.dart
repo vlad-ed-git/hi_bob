@@ -1,11 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:hi_bob/core/routing/domain/navigation.dart';
+import 'package:hi_bob/core/services/audio/domain/audio_service.dart';
 import 'package:hi_bob/core/ui/assets/app_images.dart';
 import 'package:hi_bob/core/ui/containers/containers.dart';
 import 'package:hi_bob/core/ui/text/app_text.dart';
 import 'package:hi_bob/core/utils/extensions/context_ext.dart';
+import 'package:hi_bob/features/games/domain/modals/english_russian_sentence.dart';
 import 'package:hi_bob/features/games/matching_sentences_game/presentation/state/match_russian_to_english_state_sentences.dart';
 import 'package:hi_bob/features/games/presentation/widgets/game_loading.dart';
 import 'package:hi_bob/features/games/presentation/widgets/game_results.dart';
@@ -26,13 +29,15 @@ class _MatchingSentencesGameScreenState
   Timer? _timer;
   int _totalTimeTakenInSeconds = 0;
   GameStates _gameStates = GameStates.init;
-  bool _showSuccess  = false;
+  bool _showSuccess = false;
   bool _showRetryCurrentSentence = false;
+
+  MAudioService? _audioService;
 
   @override
   void initState() {
     super.initState();
-    // init state
+    _audioService = GetIt.I<MAudioService>();
     RussianEnglishSentencesStateController();
   }
 
@@ -76,20 +81,18 @@ class _MatchingSentencesGameScreenState
     switch (_gameStates) {
       case GameStates.init:
         return GetStarted(
-            onResume: _initializePlay,
-            onStartLesson: (int number) {
-              _initializePlay(lessonNumber : number);
-            },
-            );
+          onResume: _initializePlay,
+          onStartLesson: (int number) {
+            _initializePlay(lessonNumber: number);
+          },
+        );
       case GameStates.loading:
         return GameLoading();
       case GameStates.play:
         return SafeFullScreenContainer(
           padding: EdgeInsets.all(16),
           TopLeftColumn([
-            HintText(
-              _progressLabel
-            ),
+            HintText(_progressLabel),
             SizedBox(
               height: 12,
             ),
@@ -110,11 +113,11 @@ class _MatchingSentencesGameScreenState
             ),
             Center(
               child: Image.asset(
-                 _showSuccess ?
-                     AppImages.mascotHappy.assetPath :
-                  _showRetryCurrentSentence?
-                      AppImages.mascotCry.assetPath :
-                AppImages.mascotTeach.assetPath,
+                _showSuccess
+                    ? AppImages.mascotHappy.assetPath
+                    : _showRetryCurrentSentence
+                        ? AppImages.mascotCry.assetPath
+                        : AppImages.mascotTeach.assetPath,
                 height: 100,
               ),
             ),
@@ -130,7 +133,7 @@ class _MatchingSentencesGameScreenState
                           setState(() {}); // refresh to show clicked words
 
                           final SentenceMatchingResult result =
-                          _state.checkIfSentenceIsMatched();
+                              _state.checkIfSentenceIsMatched();
                           switch (result) {
                             case SentenceMatchingResult.waiting:
                               return;
@@ -150,20 +153,20 @@ class _MatchingSentencesGameScreenState
             SizedBox(
               height: 8,
             ),
-            if(_showRetryCurrentSentence)
-            IconButton(
-              onPressed: () {
-                _state.clickedWordsForCurrentSentence.clear();
-                setState(() {
-                  _showRetryCurrentSentence = false;
-                }); // refresh
-              },
-              icon: Icon(
-                Icons.refresh,
-                size: 32,
-                color: context.color.error,
+            if (_showRetryCurrentSentence)
+              IconButton(
+                onPressed: () {
+                  _state.clickedWordsForCurrentSentence.clear();
+                  setState(() {
+                    _showRetryCurrentSentence = false;
+                  }); // refresh
+                },
+                icon: Icon(
+                  Icons.refresh,
+                  size: 32,
+                  color: context.color.error,
+                ),
               ),
-            ),
             SizedBox(
               height: 8,
             ),
@@ -171,10 +174,11 @@ class _MatchingSentencesGameScreenState
         );
       case GameStates.done:
         return GameResults(
-          gotWrongText: context.translated.wrongAttempts(_state.wrongSentencesCount),
+          gotWrongText:
+              context.translated.wrongAttempts(_state.wrongSentencesCount),
           allText: context.translated.progress(_progressLabel),
-          totalTimeLabel:
-          context.translated.timeTaken(Duration(seconds: _totalTimeTakenInSeconds).inMinutes),
+          totalTimeLabel: context.translated
+              .timeTaken(Duration(seconds: _totalTimeTakenInSeconds).inMinutes),
           onDone: () {
             context.goHome();
           },
@@ -183,12 +187,13 @@ class _MatchingSentencesGameScreenState
   }
 
   Future<void> _onSuccessfullyCompletedSentence() async {
+    context.showSuccessSnack('Awesome!');
+    await _audioService?.playAudio();
+    await Future.delayed(Duration(seconds: 3), (){});
     setState(() {
       _gameStates = GameStates.loading;
       _showSuccess = true;
     });
-    context.showSuccessSnack('Awesome!');
-    await Future.delayed(Duration(seconds: 1), () {});
     setState(() {
       _showSuccess = false;
     });
@@ -198,6 +203,10 @@ class _MatchingSentencesGameScreenState
         _gameStates = GameStates.done;
       });
       return;
+    }
+    final sentence = _state.currentSentence;
+    if(sentence != null){
+      await _audioService?.prepareAudio(sentence.audioName);
     }
     setState(() {
       _gameStates = GameStates.play;
@@ -215,8 +224,9 @@ class _MatchingSentencesGameScreenState
         /// add the clicked word in order of what has been clicked
         matchedOrFilledWordContainers.add(
           WordCard(
-              highlightAsError : _showRetryCurrentSentence,
-              word: word,),
+            highlightAsError: _showRetryCurrentSentence,
+            word: word,
+          ),
         );
         takenWordSpace++;
       }
@@ -227,7 +237,7 @@ class _MatchingSentencesGameScreenState
       final word = allEnglishWords[takenWordSpace];
       matchedOrFilledWordContainers.add(
         MissingWord(
-          highlightAsError : _showRetryCurrentSentence,
+          highlightAsError: _showRetryCurrentSentence,
           expectedWord: word,
         ),
       );
@@ -237,7 +247,7 @@ class _MatchingSentencesGameScreenState
   }
 
   Future<void> _initializePlay({
-     int? lessonNumber,
+    int? lessonNumber,
   }) async {
     setState(() {
       _gameStates = GameStates.loading;
@@ -245,8 +255,12 @@ class _MatchingSentencesGameScreenState
       _resetState();
     });
     await _state.initialize(
-        lessonNumber:lessonNumber,
+      lessonNumber: lessonNumber,
     );
+    final sentence = _state.currentSentence;
+    if(sentence != null){
+      await _audioService?.prepareAudio(sentence.audioName);
+    }
     setState(() {
       _gameStates = GameStates.play;
     });
@@ -259,6 +273,7 @@ class _MatchingSentencesGameScreenState
     _timer?.cancel();
     _resetState();
     super.dispose();
+    _audioService?.dispose().then((_) {});
   }
 
   void _resetState() {

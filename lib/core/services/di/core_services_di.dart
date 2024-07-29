@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:hi_bob/core/services/audio/data/audio_service_impl.dart';
+import 'package:hi_bob/core/services/audio/domain/audio_service.dart';
 import 'package:hi_bob/core/services/permissions/data/permissions_service_impl.dart';
 import 'package:hi_bob/core/services/permissions/domain/models/permissions_service.dart';
 import 'package:hi_bob/core/services/photo/data/photo_services_impl.dart';
@@ -11,5 +13,8 @@ void init() {
   );
   di.registerLazySingleton<PhotoServices>(
     () => PhotoServicesImpl(di()),
+  );
+  di.registerLazySingleton<MAudioService>(
+          MAudioServiceImpl.new,
   );
 }

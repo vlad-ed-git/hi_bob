@@ -6,7 +6,7 @@ Built with Flutter
 
 ### Run Web
 ```
-flutterN run -d chrome -t ./lib/main_development.dart --web-hostname localhost --web-port 5050
+flutter run -d chrome -t ./lib/main_development.dart --web-hostname localhost --web-port 5050
 ```
 
 ### Run Development Flavor
@@ -42,7 +42,7 @@ flutter build apk --release --target-platform android-arm,android-arm64 -t ./lib
 
 #### CODE GENERATION
 ```
-flutter pub run build_runner build --delete-conflicting-outputs && flutterN pub get
+flutter pub run build_runner build --delete-conflicting-outputs && flutter pub get
 ```
 
 #### CLEAN 

@@ -53,6 +53,8 @@ class RussianEnglishSentencesStateController {
   }
 
   EnglishRussianSentence? _currentSentence;
+  EnglishRussianSentence? get currentSentence => _currentSentence;
+
   bool reachedEndOfLesson = false;
   Future<void> _setCurrentLessonSentence() async{
     final int currentSentenceIndex = _sentenceNumber - 1;
@@ -62,12 +64,12 @@ class RussianEnglishSentencesStateController {
         return;
     }
     _currentSentence = _currentLessonSentences[currentSentenceIndex];
+    _englishWordsToMatch = _currentSentence?.shuffledEnglishWords ?? [];
   }
 
   String get russianSentence => _currentSentence?.russian ?? '-';
-  List<String> get englishWordsToMatch {
-    return _currentSentence?.shuffledEnglishWords ?? [];
-  }
+  List<String> _englishWordsToMatch = [];
+  List<String> get englishWordsToMatch => _englishWordsToMatch;
   Future<void> moveToNextSentence() async{
     clickedWordsForCurrentSentence.clear();
     _sentenceNumber = _sentenceNumber + 1;
@@ -110,6 +112,7 @@ class RussianEnglishSentencesStateController {
   void disposeStateData() {
     reachedEndOfLesson = false;
     _currentSentence = null;
+    _englishWordsToMatch = [];
     _wrongSentences.clear();
     clickedWordsForCurrentSentence.clear();
     _lessonNumber = 0;
