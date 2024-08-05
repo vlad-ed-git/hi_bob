@@ -3,7 +3,7 @@ import 'package:hi_bob/features/services/local_storage.dart';
 
 const String _lessonNumberStorageKey = 'lastMatchingWordsLessonKey';
 const String _pageNumberStorageKey = 'lastMatchingWordsPageInLessonKey';
-const int maxWordsPerPage = 10;
+const int maxWordsPerPage = 5;
 class RussianEnglishStateController {
   static RussianEnglishStateController? _instance;
 
