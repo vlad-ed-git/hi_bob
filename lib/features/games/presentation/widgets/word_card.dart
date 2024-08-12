@@ -9,7 +9,10 @@ import 'package:hi_bob/core/utils/extensions/string_ext.dart';
 class WordCard extends StatelessWidget {
   final String word;
   final VoidCallback? onTap;
-  final bool highlightAsMatched, playAudioOnClick, highlightAsClicked, highlightAsError;
+  final bool highlightAsMatched,
+      playAudioOnClick,
+      highlightAsClicked,
+      highlightAsError;
   const WordCard({
     super.key,
     required this.word,
@@ -22,15 +25,20 @@ class WordCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final wordLabel = P1(
+      word,
+      color: context.color.onSurface,
+      txtAlign: TextAlign.center,
+    );
     return InkWell(
-      onTap: () async{
+      onTap: () async {
         final bool disabled = highlightAsClicked || highlightAsMatched;
-        if(disabled){
+        if (disabled) {
           return;
         }
         onTap?.call();
-        if(playAudioOnClick)
-        await GetIt.I<MAudioService>().playAndRelease(word);
+        if (playAudioOnClick)
+          await GetIt.I<MAudioService>().playAndRelease(word);
       },
       radius: 16,
       borderRadius: BorderRadius.circular(16),
@@ -40,9 +48,10 @@ class WordCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           border: Border.all(
             width: (highlightAsClicked || highlightAsMatched) ? 3 : 1,
-            color: highlightAsError ? context.color.error :
-              highlightAsMatched
-                ? context.color.primary
+            color: highlightAsError
+                ? context.color.error
+                : highlightAsMatched
+                    ? context.color.primary
                     : Color(0xFFE5E5E5),
           ),
           boxShadow: [
@@ -54,22 +63,20 @@ class WordCard extends StatelessWidget {
         ),
         padding: const EdgeInsets.all(16),
         margin: const EdgeInsets.only(bottom: 16),
-        child: LeftCenteredInRow(
-          [
-            if(playAudioOnClick)...[
-              Icon(
-                Icons.multitrack_audio,
-                color: context.color.primaryContainer,
-              ),
-              SizedBox(width: 8,),
-            ],
-            P1(
-              word,
-              color: context.color.onSurface,
-              txtAlign: TextAlign.center,
-            ),
-          ],
-        ),
+        child: playAudioOnClick
+            ? LeftCenteredInRow(
+                [
+                  Icon(
+                    Icons.multitrack_audio,
+                    color: context.color.primaryContainer,
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  wordLabel,
+                ],
+              )
+            : wordLabel,
       ),
     );
   }

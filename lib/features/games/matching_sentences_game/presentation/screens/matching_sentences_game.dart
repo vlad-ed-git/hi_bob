@@ -8,6 +8,7 @@ import 'package:hi_bob/core/ui/assets/app_images.dart';
 import 'package:hi_bob/core/ui/containers/containers.dart';
 import 'package:hi_bob/core/ui/text/app_text.dart';
 import 'package:hi_bob/core/utils/extensions/context_ext.dart';
+import 'package:hi_bob/features/games/domain/keys/matching_words_keys.dart';
 import 'package:hi_bob/features/games/domain/modals/english_russian_sentence.dart';
 import 'package:hi_bob/features/games/matching_sentences_game/presentation/state/match_russian_to_english_state_sentences.dart';
 import 'package:hi_bob/features/games/presentation/widgets/game_loading.dart';
@@ -15,6 +16,7 @@ import 'package:hi_bob/features/games/presentation/widgets/game_results.dart';
 import 'package:hi_bob/features/games/presentation/widgets/get_started.dart';
 import 'package:hi_bob/features/games/presentation/widgets/missing_word.dart';
 import 'package:hi_bob/features/games/presentation/widgets/word_card.dart';
+import 'package:hi_bob/features/services/local_storage.dart';
 
 class MatchingSentencesGameScreen extends StatefulWidget {
   const MatchingSentencesGameScreen({super.key});
@@ -86,7 +88,9 @@ class _MatchingSentencesGameScreenState
             _initializePlay(lessonNumber: number);
           },
           getCompletedLessons: () async {
-            return <int>[]; // TODO
+            final localStorage = LocalStorageServices.instance;
+            return localStorage
+                .getIntList(MatchingSentencesKeys.completedLessonsListKey.key);
           },
         );
       case GameStates.loading:

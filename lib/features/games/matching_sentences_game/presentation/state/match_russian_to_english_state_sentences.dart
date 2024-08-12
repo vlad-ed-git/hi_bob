@@ -1,11 +1,9 @@
 
 import 'package:hi_bob/features/games/data/local/english_russian_sentences.dart';
+import 'package:hi_bob/features/games/domain/keys/matching_words_keys.dart';
 
 import 'package:hi_bob/features/games/domain/modals/english_russian_sentence.dart';
 import 'package:hi_bob/features/services/local_storage.dart';
-
-String _lastLessonNumberKey = 'lastRussianEnglishSentencesLessonNumberKey';
-String _lastSentenceNumberInLessonKey = 'lastRussianEnglishSentenceNumberInLessonKey';
 
 class RussianEnglishSentencesStateController {
   static RussianEnglishSentencesStateController? _instance;
@@ -33,8 +31,8 @@ class RussianEnglishSentencesStateController {
   }) async {
     bool resume = lessonNumber == null;
     if (resume) {
-      _lessonNumber = await _localStorage.getInt(_lastLessonNumberKey) ?? 1;
-      _sentenceNumber = await _localStorage.getInt(_lastSentenceNumberInLessonKey) ?? 1;
+      _lessonNumber = await _localStorage.getInt(MatchingSentencesKeys.lastLessonNumberKey.key) ?? 1;
+      _sentenceNumber = await _localStorage.getInt(MatchingSentencesKeys.lastSentenceNumberInLessonKey.key) ?? 1;
     }else {
       _lessonNumber = lessonNumber;
       _sentenceNumber = 1;
@@ -48,8 +46,8 @@ class RussianEnglishSentencesStateController {
   }
 
   Future<void> _cacheGame() async{
-    await _localStorage.setInt(_lastLessonNumberKey, _lessonNumber);
-    await _localStorage.setInt(_lastSentenceNumberInLessonKey, _sentenceNumber);
+    await _localStorage.setInt(MatchingSentencesKeys.lastLessonNumberKey.key, _lessonNumber);
+    await _localStorage.setInt(MatchingSentencesKeys.lastSentenceNumberInLessonKey.key, _sentenceNumber);
   }
 
   EnglishRussianSentence? _currentSentence;
@@ -61,6 +59,7 @@ class RussianEnglishSentencesStateController {
     reachedEndOfLesson = currentSentenceIndex >= _currentLessonSentences.length;
     if(reachedEndOfLesson){
         _sentenceNumber--;
+        await _localStorage.addToIntList(MatchingSentencesKeys.completedLessonsListKey.key, _lessonNumber);
         return;
     }
     _currentSentence = _currentLessonSentences[currentSentenceIndex];
