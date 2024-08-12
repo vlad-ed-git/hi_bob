@@ -49,3 +49,8 @@ flutter pub run build_runner build --delete-conflicting-outputs && flutter pub g
 ```
 flutter clean && cd ios && pod install --repo-update && cd ..
 ```
+
+### Deploy Web
+```
+flutter build web -t ./lib/main_production.dart && firebase deploy
+```
