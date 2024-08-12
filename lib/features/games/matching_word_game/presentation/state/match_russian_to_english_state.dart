@@ -1,9 +1,9 @@
 import 'package:hi_bob/features/games/data/local/english_russian_words.dart';
+import 'package:hi_bob/features/games/domain/keys/matching_words_keys.dart';
 import 'package:hi_bob/features/services/local_storage.dart';
 
-const String _lessonNumberStorageKey = 'lastMatchingWordsLessonKey';
-const String _pageNumberStorageKey = 'lastMatchingWordsPageInLessonKey';
-const int maxWordsPerPage = 5;
+int maxWordsPerPage = 5;
+
 class RussianEnglishStateController {
   static RussianEnglishStateController? _instance;
 
@@ -29,19 +29,24 @@ class RussianEnglishStateController {
   }) async {
     final bool resume = lessonNumber == null;
     if (resume) {
-      _lessonNumber = await _localStorage.getInt(_lessonNumberStorageKey) ?? 1;
-      _pageNumber = await _localStorage.getInt(_pageNumberStorageKey) ?? 1;
+      _lessonNumber = await _localStorage
+              .getInt(MatchingWordsKeys.lessonNumberStorageKey.key) ??
+          1;
+      _pageNumber = await _localStorage
+              .getInt(MatchingWordsKeys.pageNumberStorageKey.key) ??
+          1;
     }
     if (!resume) {
       _lessonNumber = lessonNumber;
       _pageNumber = 1;
     }
     await _localStorage.setInt(
-      _lessonNumberStorageKey,
+      MatchingWordsKeys.lessonNumberStorageKey.key,
       _lessonNumber,
     );
+
     await _localStorage.setInt(
-      _pageNumberStorageKey,
+      MatchingWordsKeys.pageNumberStorageKey.key,
       _pageNumber,
     );
     await _loadLessonWords();
@@ -53,38 +58,43 @@ class RussianEnglishStateController {
   Future<void> _loadLessonWords() async {
     _correctRussianToEnglishWordsPerPage.clear();
     final correctRussianToEnglishWords = await getLessonWordsRussianToEnglish(
-        _lessonNumber,);
+      _lessonNumber,
+    );
     int page = 1;
     Map<String, String> pageWords = {};
     for (var entry in correctRussianToEnglishWords.entries) {
       pageWords[entry.key] = entry.value;
       if (pageWords.length == maxWordsPerPage) {
-        _correctRussianToEnglishWordsPerPage[page]
-        = {}..addAll(pageWords);
+        _correctRussianToEnglishWordsPerPage[page] = {}..addAll(pageWords);
         pageWords.clear();
         page++;
       }
     }
-    _loadCurrentPageWords();
+    await _loadCurrentPageWords();
   }
 
-  void _setRussianToShuffledEnglish()  {
+  void _setRussianToShuffledEnglish() {
     russianToShuffledEnglish.clear();
     final russian = _correctWordsInCurrentPage.keys.toList();
     final english = _correctWordsInCurrentPage.values.toList();
-     english.shuffle();
+    english.shuffle();
     final Map<String, String> words = {};
     int i = 0;
-    for(var r in russian){
+    for (var r in russian) {
       words[r] = english[i];
       i++;
     }
     russianToShuffledEnglish.addAll(words);
   }
-  Map<String, String>  russianToShuffledEnglish  = {};
-  void _loadCurrentPageWords(){
+
+  Map<String, String> russianToShuffledEnglish = {};
+  Future<void> _loadCurrentPageWords() async{
     endOfGame = !_correctRussianToEnglishWordsPerPage.containsKey(_pageNumber);
-    if(endOfGame){
+    if (endOfGame) {
+      await _localStorage.addToIntList(
+        MatchingWordsKeys.completedLessonsListKey.key,
+        _lessonNumber,
+      );
       return;
     }
     _correctWordsInCurrentPage.clear();
@@ -93,7 +103,6 @@ class RussianEnglishStateController {
     );
     _setRussianToShuffledEnglish();
   }
-
 
   bool allWordsInPageMatched = false;
   String? _lastClickedRussianWord;
@@ -109,14 +118,13 @@ class RussianEnglishStateController {
   int _correctTimesPerPage = 0;
   MatchStateOnClick onClickedRussianWord(String word, String wordTagSuffix) {
     final lastEnglish = _lastClickedEnglishWord;
-    if(lastEnglish == null) {
+    if (lastEnglish == null) {
       _lastClickedRussianWord = word;
       return MatchStateOnClick.awaitNextClick;
     }
 
-
     final correctEnglish = _correctWordsInCurrentPage[word];
-    if(correctEnglish == lastEnglish) {
+    if (correctEnglish == lastEnglish) {
       _lastClickedRussianWord = null;
       _lastClickedEnglishWord = null;
       correctTimes++;
@@ -126,7 +134,7 @@ class RussianEnglishStateController {
       _addToMatchedRussian(getWordTag(word, wordTagSuffix));
       _addToMatchedEnglish(getWordTag(lastEnglish, wordTagSuffix));
       return MatchStateOnClick.matched;
-    }else{
+    } else {
       incorrectTimes++;
       return MatchStateOnClick.mismatched;
     }
@@ -140,7 +148,6 @@ class RussianEnglishStateController {
       _lastClickedEnglishWord = word;
       return MatchStateOnClick.awaitNextClick;
     }
-
 
     final correctEnglish = _correctWordsInCurrentPage[lastRussian];
     if (correctEnglish == word) {
@@ -159,16 +166,14 @@ class RussianEnglishStateController {
     }
   }
 
-
-
-  Future<void> toNextPage() async{
+  Future<void> toNextPage() async {
     _pageNumber++;
     _correctTimesPerPage = 0;
     await _localStorage.setInt(
-      _pageNumberStorageKey,
+      MatchingWordsKeys.pageNumberStorageKey.key,
       _pageNumber,
     );
-    _loadCurrentPageWords();
+    await _loadCurrentPageWords();
   }
 
   void disposeStateData() {
@@ -198,7 +203,7 @@ class RussianEnglishStateController {
   }
 }
 
-enum MatchStateOnClick{
+enum MatchStateOnClick {
   awaitNextClick,
   matched,
   mismatched,

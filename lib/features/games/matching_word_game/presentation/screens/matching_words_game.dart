@@ -5,11 +5,13 @@ import 'package:hi_bob/core/routing/domain/navigation.dart';
 import 'package:hi_bob/core/ui/containers/containers.dart';
 import 'package:hi_bob/core/ui/text/app_text.dart';
 import 'package:hi_bob/core/utils/extensions/context_ext.dart';
+import 'package:hi_bob/features/games/domain/keys/matching_words_keys.dart';
 import 'package:hi_bob/features/games/matching_word_game/presentation/state/match_russian_to_english_state.dart';
 import 'package:hi_bob/features/games/presentation/widgets/game_loading.dart';
 import 'package:hi_bob/features/games/presentation/widgets/game_results.dart';
 import 'package:hi_bob/features/games/presentation/widgets/get_started.dart';
 import 'package:hi_bob/features/games/presentation/widgets/word_card.dart';
+import 'package:hi_bob/features/services/local_storage.dart';
 
 class MatchingWordsGameScreen extends StatefulWidget {
   const MatchingWordsGameScreen({super.key});
@@ -25,7 +27,6 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
   int _totalTimeTakenInSeconds = 0;
   GameStates _gameStates = GameStates.init;
 
-
   @override
   void initState() {
     super.initState();
@@ -36,11 +37,10 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
   RussianEnglishStateController get _state =>
       RussianEnglishStateController.instance;
 
-
-  void _startTimer(){
+  void _startTimer() {
     _timer = Timer.periodic(Duration(seconds: 1), (t) {
       if (t.isActive && mounted) {
-          _totalTimeTakenInSeconds = _totalTimeTakenInSeconds + 1;
+        _totalTimeTakenInSeconds = _totalTimeTakenInSeconds + 1;
       }
     });
   }
@@ -72,8 +72,13 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
     switch (_gameStates) {
       case GameStates.init:
         return GetStarted(
+          getCompletedLessons: () async {
+            final localStorage = LocalStorageServices.instance;
+            return localStorage
+                .getIntList(MatchingWordsKeys.completedLessonsListKey.key);
+          },
           onStartLesson: (int lessonNumber) => _initializePlay(
-              lessonNumber:lessonNumber,
+            lessonNumber: lessonNumber,
           ),
           onResume: _initializePlay,
         );
@@ -81,7 +86,8 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
         return SafeFullScreenContainer(
           padding: EdgeInsets.all(16),
           ScrollConfiguration(
-            behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            behavior:
+                ScrollConfiguration.of(context).copyWith(scrollbars: false),
             child: SingleChildScrollView(
               physics: const ClampingScrollPhysics(),
               child: TopLeftColumn(
@@ -106,12 +112,13 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
           ),
         );
       case GameStates.done:
+
         /// TODO make the wording match the actual data  incorrectTimes vs  correctTimes
         return GameResults(
           gotWrongText: context.translated.wrongAttempts(_state.incorrectTimes),
           allText: context.translated.totalWords(_state.correctTimes),
-          totalTimeLabel:
-          context.translated.timeTaken(Duration(seconds: _totalTimeTakenInSeconds).inMinutes),
+          totalTimeLabel: context.translated
+              .timeTaken(Duration(seconds: _totalTimeTakenInSeconds).inMinutes),
           onDone: () {
             context.goHome();
           },
@@ -126,7 +133,7 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
     required bool isRussian,
     required String wordTagSuffix,
   }) {
-    final tag = _state.getWordTag(word,wordTagSuffix);
+    final tag = _state.getWordTag(word, wordTagSuffix);
     return WordCard(
       word: word,
       playAudioOnClick: isRussian,
@@ -146,27 +153,25 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
     );
   }
 
-
-  Future<void> _initializePlay({int? lessonNumber }) async {
-      setState(() {
-        _gameStates = GameStates.loading;
-        _state.disposeStateData();
-        _resetState();
-      });
-      await _state.initialize(
-          lessonNumber  : lessonNumber,
-      );
-      setState(() {
-        _gameStates = GameStates.play;
-      });
-      _startTimer();
-    }
-
+  Future<void> _initializePlay({int? lessonNumber}) async {
+    setState(() {
+      _gameStates = GameStates.loading;
+      _state.disposeStateData();
+      _resetState();
+    });
+    await _state.initialize(
+      lessonNumber: lessonNumber,
+    );
+    setState(() {
+      _gameStates = GameStates.play;
+    });
+    _startTimer();
+  }
 
   void _checkMatchStatus(
-      MatchStateOnClick matchStatus, {
-        required String justClicked,
-      }) {
+    MatchStateOnClick matchStatus, {
+    required String justClicked,
+  }) {
     switch (matchStatus) {
       case MatchStateOnClick.awaitNextClick:
         setState(() {
@@ -187,7 +192,6 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
         context.showErrorSnack('Wrong!');
         context.removeSnack();
     }
-
   }
 
   Future<void> _goToNextPage() async {
@@ -203,7 +207,7 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
         _gameStates = GameStates.done;
       });
       _timer?.cancel();
-    }else{
+    } else {
       setState(() {
         _gameStates = GameStates.play;
       });
@@ -217,7 +221,8 @@ class _MatchingWordsGameScreenState extends State<MatchingWordsGameScreen> {
     _resetState();
     super.dispose();
   }
-  void _resetState(){
+
+  void _resetState() {
     _totalTimeTakenInSeconds = 0;
     _wordAwaitingMatching = null;
   }

@@ -85,6 +85,9 @@ class _MatchingSentencesGameScreenState
           onStartLesson: (int number) {
             _initializePlay(lessonNumber: number);
           },
+          getCompletedLessons: () async {
+            return <int>[]; // TODO
+          },
         );
       case GameStates.loading:
         return GameLoading();
@@ -189,7 +192,7 @@ class _MatchingSentencesGameScreenState
   Future<void> _onSuccessfullyCompletedSentence() async {
     context.showSuccessSnack('Awesome!');
     await _audioService?.playPreparedAudio();
-    await Future.delayed(Duration(seconds: 3), (){});
+    await Future.delayed(Duration(seconds: 3), () {});
     setState(() {
       _gameStates = GameStates.loading;
       _showSuccess = true;
@@ -205,7 +208,7 @@ class _MatchingSentencesGameScreenState
       return;
     }
     final sentence = _state.currentSentence;
-    if(sentence != null){
+    if (sentence != null) {
       await _audioService?.prepareAudio(sentence.audioName);
     }
     setState(() {
@@ -258,7 +261,7 @@ class _MatchingSentencesGameScreenState
       lessonNumber: lessonNumber,
     );
     final sentence = _state.currentSentence;
-    if(sentence != null){
+    if (sentence != null) {
       await _audioService?.prepareAudio(sentence.audioName);
     }
     setState(() {
